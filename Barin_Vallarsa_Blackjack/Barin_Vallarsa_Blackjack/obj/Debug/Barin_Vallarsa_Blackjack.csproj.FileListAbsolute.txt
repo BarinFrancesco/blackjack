@@ -1,0 +1,10 @@
+G:\FRANCESCO\x scuola\Superiori\Informatica\COMPITI VACANZE\blackjack\Barin_Vallarsa_Blackjack\Barin_Vallarsa_Blackjack\bin\Debug\Barin_Vallarsa_Blackjack.exe.config
+G:\FRANCESCO\x scuola\Superiori\Informatica\COMPITI VACANZE\blackjack\Barin_Vallarsa_Blackjack\Barin_Vallarsa_Blackjack\bin\Debug\Barin_Vallarsa_Blackjack.exe
+G:\FRANCESCO\x scuola\Superiori\Informatica\COMPITI VACANZE\blackjack\Barin_Vallarsa_Blackjack\Barin_Vallarsa_Blackjack\bin\Debug\Barin_Vallarsa_Blackjack.pdb
+G:\FRANCESCO\x scuola\Superiori\Informatica\COMPITI VACANZE\blackjack\Barin_Vallarsa_Blackjack\Barin_Vallarsa_Blackjack\obj\Debug\Barin_Vallarsa_Blackjack.csproj.AssemblyReference.cache
+G:\FRANCESCO\x scuola\Superiori\Informatica\COMPITI VACANZE\blackjack\Barin_Vallarsa_Blackjack\Barin_Vallarsa_Blackjack\obj\Debug\Barin_Vallarsa_Blackjack.Properties.Resources.resources
+G:\FRANCESCO\x scuola\Superiori\Informatica\COMPITI VACANZE\blackjack\Barin_Vallarsa_Blackjack\Barin_Vallarsa_Blackjack\obj\Debug\Barin_Vallarsa_Blackjack.csproj.GenerateResource.cache
+G:\FRANCESCO\x scuola\Superiori\Informatica\COMPITI VACANZE\blackjack\Barin_Vallarsa_Blackjack\Barin_Vallarsa_Blackjack\obj\Debug\Barin_Vallarsa_Blackjack.csproj.CoreCompileInputs.cache
+G:\FRANCESCO\x scuola\Superiori\Informatica\COMPITI VACANZE\blackjack\Barin_Vallarsa_Blackjack\Barin_Vallarsa_Blackjack\obj\Debug\Barin_Vallarsa_Blackjack.exe
+G:\FRANCESCO\x scuola\Superiori\Informatica\COMPITI VACANZE\blackjack\Barin_Vallarsa_Blackjack\Barin_Vallarsa_Blackjack\obj\Debug\Barin_Vallarsa_Blackjack.pdb
+G:\FRANCESCO\x scuola\Superiori\Informatica\COMPITI VACANZE\blackjack\Barin_Vallarsa_Blackjack\Barin_Vallarsa_Blackjack\obj\Debug\Barin_Vallarsa_Blackjack.Form1.resources

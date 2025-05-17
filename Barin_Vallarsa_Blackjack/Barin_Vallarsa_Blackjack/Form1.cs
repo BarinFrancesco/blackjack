@@ -17,16 +17,26 @@ namespace Barin_Vallarsa_Blackjack
         {
             InitializeComponent();
             shuffledeck();
-            lblCredito.Text = $"credito: {credito.ToString()}$";
+            using (formCambioSoldi form = new formCambioSoldi())//all'inizio chiedo all'utente quanti sildi punta
+            {
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    credito += form.money;
+                    lblCredito.Text = $"credito: {credito.ToString()}$";
+                }
+            }
         }
-        Random random = new Random(Environment.TickCount);
-        int puntata = 0;
-        int credito = 10000;
+        Random random = new Random(Environment.TickCount);//random per generare le carte in posti casuali
 
-        int[] valoricarte = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,10,10,10 };
+        //credito della persona
+        int credito = 0;
+
+        //array con i valori della carte per generarle
+        int[] valoricarte = { 11, 2, 3, 4, 5, 6, 7, 8, 9, 10,10,10,10 };
         Ccarta[] mazzi = new Ccarta[156];
         int cartapuntata = 0;
 
+        int puntata = 0; //puntate e lista puntate per annullarle
         List<int> listapuntate = new List<int>();
         int indexpuntate = -1;
         private void pnlFiches100_MouseClick(object sender, MouseEventArgs e)

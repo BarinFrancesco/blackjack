@@ -20,3 +20,4 @@ C:\Users\12999355\Desktop\progetto\blackjack\Barin_Vallarsa_Blackjack\Barin_Vall
 C:\Users\12999355\Desktop\progetto\blackjack\Barin_Vallarsa_Blackjack\Barin_Vallarsa_Blackjack\bin\Debug\Barin_Vallarsa_Blackjack.exe
 C:\Users\12999355\Desktop\progetto\blackjack\Barin_Vallarsa_Blackjack\Barin_Vallarsa_Blackjack\bin\Debug\Barin_Vallarsa_Blackjack.pdb
 C:\Users\12999355\Desktop\progetto\blackjack\Barin_Vallarsa_Blackjack\Barin_Vallarsa_Blackjack\obj\Debug\Barin_Vallarsa_Blackjack.formCambioSoldi.resources
+G:\FRANCESCO\x scuola\Superiori\Informatica\COMPITI VACANZE\blackjack\Barin_Vallarsa_Blackjack\Barin_Vallarsa_Blackjack\obj\Debug\Barin_Vallarsa_Blackjack.formCambioSoldi.resources

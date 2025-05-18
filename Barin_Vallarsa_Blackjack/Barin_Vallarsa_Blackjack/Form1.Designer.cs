@@ -34,24 +34,30 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnlFiches100 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lblPuntata = new System.Windows.Forms.Label();
+            this.lbl_bet = new System.Windows.Forms.Label();
             this.pnlFiches500 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.btn_cancelBet = new System.Windows.Forms.Button();
             this.btn_dealCards = new System.Windows.Forms.Button();
             this.lbl_cancelBet = new System.Windows.Forms.Label();
             this.lblCredito = new System.Windows.Forms.Label();
             this.btn_addNewMoney = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_addNewMoney = new System.Windows.Forms.Label();
             this.lbl_dealCards = new System.Windows.Forms.Label();
             this.btn_lastBet = new System.Windows.Forms.Button();
             this.lbl_lastBet = new System.Windows.Forms.Label();
             this.pnlFiches1000 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.lbl_doubleDown = new System.Windows.Forms.Label();
+            this.btn_doubleDown = new System.Windows.Forms.Button();
+            this.lbl_call = new System.Windows.Forms.Label();
+            this.lbl_stop = new System.Windows.Forms.Label();
+            this.btn_call = new System.Windows.Forms.Button();
+            this.btn_stop = new System.Windows.Forms.Button();
+            this.lbl_split = new System.Windows.Forms.Label();
+            this.btn_split = new System.Windows.Forms.Button();
+            this.lbl_playersHandValue = new System.Windows.Forms.Label();
+            this.lbl_dealersHandValue = new System.Windows.Forms.Label();
             this.pnlFiches20.SuspendLayout();
             this.pnlFiches100.SuspendLayout();
             this.pnlFiches500.SuspendLayout();
@@ -81,7 +87,7 @@
             this.pnlFiches20.Name = "pnlFiches20";
             this.pnlFiches20.Size = new System.Drawing.Size(51, 80);
             this.pnlFiches20.TabIndex = 1;
-            this.pnlFiches20.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnlFiches25_MouseClick);
+            this.pnlFiches20.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnlFiches20_MouseClick);
             // 
             // panel3
             // 
@@ -112,16 +118,16 @@
             this.panel2.Size = new System.Drawing.Size(51, 80);
             this.panel2.TabIndex = 2;
             // 
-            // lblPuntata
+            // lbl_bet
             // 
-            this.lblPuntata.BackColor = System.Drawing.Color.Transparent;
-            this.lblPuntata.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPuntata.ForeColor = System.Drawing.Color.White;
-            this.lblPuntata.Location = new System.Drawing.Point(492, 503);
-            this.lblPuntata.Name = "lblPuntata";
-            this.lblPuntata.Size = new System.Drawing.Size(191, 37);
-            this.lblPuntata.TabIndex = 5;
-            this.lblPuntata.Text = "Puntata: 0$";
+            this.lbl_bet.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_bet.ForeColor = System.Drawing.Color.White;
+            this.lbl_bet.Location = new System.Drawing.Point(492, 503);
+            this.lbl_bet.Name = "lbl_bet";
+            this.lbl_bet.Size = new System.Drawing.Size(191, 37);
+            this.lbl_bet.TabIndex = 5;
+            this.lbl_bet.Text = "Puntata: 0$";
             // 
             // pnlFiches500
             // 
@@ -144,66 +150,17 @@
             this.panel4.Size = new System.Drawing.Size(75, 75);
             this.panel4.TabIndex = 2;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(527, 55);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.panel1.Size = new System.Drawing.Size(87, 117);
-            this.panel1.TabIndex = 6;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.Transparent;
-            this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
-            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel5.Location = new System.Drawing.Point(567, 55);
-            this.panel5.Margin = new System.Windows.Forms.Padding(0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(87, 117);
-            this.panel5.TabIndex = 7;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.Transparent;
-            this.panel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel6.BackgroundImage")));
-            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel6.Location = new System.Drawing.Point(560, 369);
-            this.panel6.Margin = new System.Windows.Forms.Padding(0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(87, 117);
-            this.panel6.TabIndex = 9;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.Transparent;
-            this.panel7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel7.BackgroundImage")));
-            this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel7.Location = new System.Drawing.Point(520, 369);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel7.Name = "panel7";
-            this.panel7.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.panel7.Size = new System.Drawing.Size(87, 117);
-            this.panel7.TabIndex = 8;
-            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
-            // 
             // btn_cancelBet
             // 
             this.btn_cancelBet.BackColor = System.Drawing.Color.Maroon;
             this.btn_cancelBet.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_cancelBet.BackgroundImage")));
             this.btn_cancelBet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_cancelBet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancelBet.ForeColor = System.Drawing.Color.Red;
-            this.btn_cancelBet.Location = new System.Drawing.Point(810, 520);
-            this.btn_cancelBet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_cancelBet.Location = new System.Drawing.Point(738, 490);
+            this.btn_cancelBet.Margin = new System.Windows.Forms.Padding(0);
             this.btn_cancelBet.Name = "btn_cancelBet";
-            this.btn_cancelBet.Size = new System.Drawing.Size(75, 75);
+            this.btn_cancelBet.Size = new System.Drawing.Size(90, 90);
             this.btn_cancelBet.TabIndex = 10;
             this.btn_cancelBet.Text = " ";
             this.btn_cancelBet.UseVisualStyleBackColor = false;
@@ -214,11 +171,11 @@
             this.btn_dealCards.BackColor = System.Drawing.Color.ForestGreen;
             this.btn_dealCards.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_dealCards.BackgroundImage")));
             this.btn_dealCards.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_dealCards.ForeColor = System.Drawing.Color.ForestGreen;
-            this.btn_dealCards.Location = new System.Drawing.Point(920, 520);
-            this.btn_dealCards.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_dealCards.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_dealCards.Location = new System.Drawing.Point(853, 490);
+            this.btn_dealCards.Margin = new System.Windows.Forms.Padding(0);
             this.btn_dealCards.Name = "btn_dealCards";
-            this.btn_dealCards.Size = new System.Drawing.Size(75, 75);
+            this.btn_dealCards.Size = new System.Drawing.Size(90, 90);
             this.btn_dealCards.TabIndex = 11;
             this.btn_dealCards.Text = " ";
             this.btn_dealCards.UseVisualStyleBackColor = false;
@@ -229,7 +186,7 @@
             this.lbl_cancelBet.BackColor = System.Drawing.Color.Transparent;
             this.lbl_cancelBet.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_cancelBet.ForeColor = System.Drawing.Color.White;
-            this.lbl_cancelBet.Location = new System.Drawing.Point(805, 600);
+            this.lbl_cancelBet.Location = new System.Drawing.Point(738, 590);
             this.lbl_cancelBet.Name = "lbl_cancelBet";
             this.lbl_cancelBet.Size = new System.Drawing.Size(95, 37);
             this.lbl_cancelBet.TabIndex = 12;
@@ -252,33 +209,34 @@
             this.btn_addNewMoney.BackColor = System.Drawing.Color.SkyBlue;
             this.btn_addNewMoney.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_addNewMoney.BackgroundImage")));
             this.btn_addNewMoney.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_addNewMoney.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_addNewMoney.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.btn_addNewMoney.Location = new System.Drawing.Point(342, 562);
+            this.btn_addNewMoney.Location = new System.Drawing.Point(344, 551);
             this.btn_addNewMoney.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_addNewMoney.Name = "btn_addNewMoney";
-            this.btn_addNewMoney.Size = new System.Drawing.Size(75, 75);
+            this.btn_addNewMoney.Size = new System.Drawing.Size(90, 90);
             this.btn_addNewMoney.TabIndex = 14;
             this.btn_addNewMoney.UseVisualStyleBackColor = false;
             this.btn_addNewMoney.Click += new System.EventHandler(this.btn_addNewMoney_Click);
             // 
-            // label2
+            // lbl_addNewMoney
             // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(341, 643);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 37);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Cambia altri soldi";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_addNewMoney.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_addNewMoney.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_addNewMoney.ForeColor = System.Drawing.Color.White;
+            this.lbl_addNewMoney.Location = new System.Drawing.Point(341, 643);
+            this.lbl_addNewMoney.Name = "lbl_addNewMoney";
+            this.lbl_addNewMoney.Size = new System.Drawing.Size(92, 37);
+            this.lbl_addNewMoney.TabIndex = 15;
+            this.lbl_addNewMoney.Text = "Cambia altri soldi";
+            this.lbl_addNewMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbl_dealCards
             // 
             this.lbl_dealCards.BackColor = System.Drawing.Color.Transparent;
             this.lbl_dealCards.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_dealCards.ForeColor = System.Drawing.Color.White;
-            this.lbl_dealCards.Location = new System.Drawing.Point(906, 600);
+            this.lbl_dealCards.Location = new System.Drawing.Point(853, 590);
             this.lbl_dealCards.Name = "lbl_dealCards";
             this.lbl_dealCards.Size = new System.Drawing.Size(100, 37);
             this.lbl_dealCards.TabIndex = 16;
@@ -290,11 +248,12 @@
             this.btn_lastBet.BackColor = System.Drawing.Color.Gold;
             this.btn_lastBet.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_lastBet.BackgroundImage")));
             this.btn_lastBet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_lastBet.ForeColor = System.Drawing.Color.ForestGreen;
-            this.btn_lastBet.Location = new System.Drawing.Point(1030, 520);
-            this.btn_lastBet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_lastBet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_lastBet.ForeColor = System.Drawing.Color.Yellow;
+            this.btn_lastBet.Location = new System.Drawing.Point(968, 490);
+            this.btn_lastBet.Margin = new System.Windows.Forms.Padding(0);
             this.btn_lastBet.Name = "btn_lastBet";
-            this.btn_lastBet.Size = new System.Drawing.Size(75, 75);
+            this.btn_lastBet.Size = new System.Drawing.Size(90, 90);
             this.btn_lastBet.TabIndex = 17;
             this.btn_lastBet.Text = " ";
             this.btn_lastBet.UseVisualStyleBackColor = false;
@@ -305,7 +264,7 @@
             this.lbl_lastBet.BackColor = System.Drawing.Color.Transparent;
             this.lbl_lastBet.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_lastBet.ForeColor = System.Drawing.Color.White;
-            this.lbl_lastBet.Location = new System.Drawing.Point(1012, 600);
+            this.lbl_lastBet.Location = new System.Drawing.Point(963, 590);
             this.lbl_lastBet.Name = "lbl_lastBet";
             this.lbl_lastBet.Size = new System.Drawing.Size(111, 37);
             this.lbl_lastBet.TabIndex = 18;
@@ -333,29 +292,168 @@
             this.panel9.Size = new System.Drawing.Size(75, 75);
             this.panel9.TabIndex = 2;
             // 
+            // lbl_doubleDown
+            // 
+            this.lbl_doubleDown.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_doubleDown.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_doubleDown.ForeColor = System.Drawing.Color.White;
+            this.lbl_doubleDown.Location = new System.Drawing.Point(715, 894);
+            this.lbl_doubleDown.Name = "lbl_doubleDown";
+            this.lbl_doubleDown.Size = new System.Drawing.Size(111, 37);
+            this.lbl_doubleDown.TabIndex = 24;
+            this.lbl_doubleDown.Text = "Raddoppio";
+            this.lbl_doubleDown.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_doubleDown
+            // 
+            this.btn_doubleDown.BackColor = System.Drawing.Color.Gold;
+            this.btn_doubleDown.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_doubleDown.BackgroundImage")));
+            this.btn_doubleDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_doubleDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_doubleDown.ForeColor = System.Drawing.Color.Yellow;
+            this.btn_doubleDown.Location = new System.Drawing.Point(727, 794);
+            this.btn_doubleDown.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_doubleDown.Name = "btn_doubleDown";
+            this.btn_doubleDown.Size = new System.Drawing.Size(90, 90);
+            this.btn_doubleDown.TabIndex = 23;
+            this.btn_doubleDown.Text = " ";
+            this.btn_doubleDown.UseVisualStyleBackColor = false;
+            this.btn_doubleDown.Click += new System.EventHandler(this.btn_doubleDown_Click);
+            // 
+            // lbl_call
+            // 
+            this.lbl_call.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_call.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_call.ForeColor = System.Drawing.Color.White;
+            this.lbl_call.Location = new System.Drawing.Point(845, 894);
+            this.lbl_call.Name = "lbl_call";
+            this.lbl_call.Size = new System.Drawing.Size(65, 37);
+            this.lbl_call.TabIndex = 22;
+            this.lbl_call.Text = "Chiama carta";
+            this.lbl_call.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl_stop
+            // 
+            this.lbl_stop.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_stop.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_stop.ForeColor = System.Drawing.Color.White;
+            this.lbl_stop.Location = new System.Drawing.Point(930, 894);
+            this.lbl_stop.Name = "lbl_stop";
+            this.lbl_stop.Size = new System.Drawing.Size(95, 37);
+            this.lbl_stop.TabIndex = 21;
+            this.lbl_stop.Text = "Fine mano";
+            this.lbl_stop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_call
+            // 
+            this.btn_call.BackColor = System.Drawing.Color.ForestGreen;
+            this.btn_call.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_call.BackgroundImage")));
+            this.btn_call.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_call.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_call.Location = new System.Drawing.Point(832, 794);
+            this.btn_call.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_call.Name = "btn_call";
+            this.btn_call.Size = new System.Drawing.Size(90, 90);
+            this.btn_call.TabIndex = 20;
+            this.btn_call.Text = " ";
+            this.btn_call.UseVisualStyleBackColor = false;
+            this.btn_call.Click += new System.EventHandler(this.btn_call_Click);
+            // 
+            // btn_stop
+            // 
+            this.btn_stop.BackColor = System.Drawing.Color.Maroon;
+            this.btn_stop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_stop.BackgroundImage")));
+            this.btn_stop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_stop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_stop.ForeColor = System.Drawing.Color.Red;
+            this.btn_stop.Location = new System.Drawing.Point(937, 794);
+            this.btn_stop.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_stop.Name = "btn_stop";
+            this.btn_stop.Size = new System.Drawing.Size(90, 90);
+            this.btn_stop.TabIndex = 19;
+            this.btn_stop.Text = " ";
+            this.btn_stop.UseVisualStyleBackColor = false;
+            this.btn_stop.Click += new System.EventHandler(this.btn_stop_Click);
+            // 
+            // lbl_split
+            // 
+            this.lbl_split.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_split.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_split.ForeColor = System.Drawing.Color.White;
+            this.lbl_split.Location = new System.Drawing.Point(1020, 894);
+            this.lbl_split.Name = "lbl_split";
+            this.lbl_split.Size = new System.Drawing.Size(111, 37);
+            this.lbl_split.TabIndex = 26;
+            this.lbl_split.Text = "Splitta";
+            this.lbl_split.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_split
+            // 
+            this.btn_split.BackColor = System.Drawing.Color.Gold;
+            this.btn_split.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_split.BackgroundImage")));
+            this.btn_split.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_split.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_split.ForeColor = System.Drawing.Color.Yellow;
+            this.btn_split.Location = new System.Drawing.Point(1042, 794);
+            this.btn_split.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_split.Name = "btn_split";
+            this.btn_split.Size = new System.Drawing.Size(90, 90);
+            this.btn_split.TabIndex = 25;
+            this.btn_split.Text = " ";
+            this.btn_split.UseVisualStyleBackColor = false;
+            this.btn_split.Click += new System.EventHandler(this.btn_split_Click);
+            // 
+            // lbl_playersHandValue
+            // 
+            this.lbl_playersHandValue.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_playersHandValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
+            this.lbl_playersHandValue.ForeColor = System.Drawing.Color.White;
+            this.lbl_playersHandValue.Location = new System.Drawing.Point(482, 327);
+            this.lbl_playersHandValue.Name = "lbl_playersHandValue";
+            this.lbl_playersHandValue.Size = new System.Drawing.Size(191, 37);
+            this.lbl_playersHandValue.TabIndex = 27;
+            this.lbl_playersHandValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl_dealersHandValue
+            // 
+            this.lbl_dealersHandValue.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_dealersHandValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
+            this.lbl_dealersHandValue.ForeColor = System.Drawing.Color.White;
+            this.lbl_dealersHandValue.Location = new System.Drawing.Point(501, 223);
+            this.lbl_dealersHandValue.Name = "lbl_dealersHandValue";
+            this.lbl_dealersHandValue.Size = new System.Drawing.Size(191, 37);
+            this.lbl_dealersHandValue.TabIndex = 28;
+            this.lbl_dealersHandValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1173, 694);
+            this.ClientSize = new System.Drawing.Size(1173, 695);
+            this.Controls.Add(this.lbl_dealersHandValue);
+            this.Controls.Add(this.lbl_playersHandValue);
+            this.Controls.Add(this.lbl_split);
+            this.Controls.Add(this.btn_split);
+            this.Controls.Add(this.lbl_doubleDown);
+            this.Controls.Add(this.btn_doubleDown);
+            this.Controls.Add(this.lbl_call);
+            this.Controls.Add(this.lbl_stop);
+            this.Controls.Add(this.btn_call);
+            this.Controls.Add(this.btn_stop);
             this.Controls.Add(this.pnlFiches1000);
             this.Controls.Add(this.lbl_lastBet);
             this.Controls.Add(this.btn_lastBet);
             this.Controls.Add(this.lbl_dealCards);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbl_addNewMoney);
             this.Controls.Add(this.btn_addNewMoney);
             this.Controls.Add(this.lblCredito);
             this.Controls.Add(this.lbl_cancelBet);
             this.Controls.Add(this.btn_dealCards);
             this.Controls.Add(this.btn_cancelBet);
-            this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel7);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlFiches500);
-            this.Controls.Add(this.lblPuntata);
+            this.Controls.Add(this.lbl_bet);
             this.Controls.Add(this.pnlFiches100);
             this.Controls.Add(this.pnlFiches20);
             this.Controls.Add(this.pnlFiches10);
@@ -377,24 +475,30 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel pnlFiches100;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label lblPuntata;
+        private System.Windows.Forms.Label lbl_bet;
         private System.Windows.Forms.Panel pnlFiches500;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button btn_cancelBet;
         private System.Windows.Forms.Button btn_dealCards;
         private System.Windows.Forms.Label lbl_cancelBet;
         private System.Windows.Forms.Label lblCredito;
         private System.Windows.Forms.Button btn_addNewMoney;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_addNewMoney;
         private System.Windows.Forms.Label lbl_dealCards;
         private System.Windows.Forms.Button btn_lastBet;
         private System.Windows.Forms.Label lbl_lastBet;
         private System.Windows.Forms.Panel pnlFiches1000;
         private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label lbl_doubleDown;
+        private System.Windows.Forms.Button btn_doubleDown;
+        private System.Windows.Forms.Label lbl_call;
+        private System.Windows.Forms.Label lbl_stop;
+        private System.Windows.Forms.Button btn_call;
+        private System.Windows.Forms.Button btn_stop;
+        private System.Windows.Forms.Label lbl_split;
+        private System.Windows.Forms.Button btn_split;
+        private System.Windows.Forms.Label lbl_playersHandValue;
+        private System.Windows.Forms.Label lbl_dealersHandValue;
     }
 }
 

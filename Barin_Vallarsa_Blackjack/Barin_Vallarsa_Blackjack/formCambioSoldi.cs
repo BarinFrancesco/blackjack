@@ -23,15 +23,18 @@ namespace Barin_Vallarsa_Blackjack
         private void btn_ok_Click(object sender, EventArgs e)
         {
             // una volta inserito l'input andiamo a verificare che non sia null e che sia minore di 1000000000
-            if (txt_input_soldi.Text == "")
-            {
-                Vocedealer("Deve darmi dei soldi da cambiare, non mi ha ancora dato niente.", 25); 
-                return;
-            }
 
             if (txt_input_soldi.Text.Length >= 10)
             {
-                Vocedealer("mi dispiace non sono capaci di cambiare una quantità così grande di denaro!", 25);
+                Vocedealer("Mi dispiace non sono capace di cambiare una quantità così grande di denaro!", 25);
+                txt_input_soldi.Text = null;
+                return;
+            }
+
+            if (txt_input_soldi.Text == "" || int.Parse(txt_input_soldi.Text) == 0)
+            {
+                Vocedealer("Deve darmi dei soldi da cambiare, non mi ha ancora dato niente.", 25);
+                txt_input_soldi.Text = null;
                 return;
             }
 
@@ -56,7 +59,7 @@ namespace Barin_Vallarsa_Blackjack
         }
 
         //funzione aggiunta per creare l'effetto di una persona che parla
-        private async void Vocedealer(string text, int delay = 100)
+        private async void Vocedealer(string text, int delay)
         {
             lbl_dealerVoice.Text = "";
             foreach (char c in text)

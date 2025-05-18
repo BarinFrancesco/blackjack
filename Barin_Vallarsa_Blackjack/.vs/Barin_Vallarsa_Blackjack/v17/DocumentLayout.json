@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|solutionrelative:barin_vallarsa_blackjack\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI VACANZE\\blackjack\\Barin_Vallarsa_Blackjack\\barin_vallarsa_blackjack\\formcambiosoldi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|solutionrelative:barin_vallarsa_blackjack\\formcambiosoldi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI VACANZE\\blackjack\\Barin_Vallarsa_Blackjack\\barin_vallarsa_blackjack\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|solutionrelative:barin_vallarsa_blackjack\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|g:\\francesco\\x scuola\\superiori\\informatica\\compiti vacanze\\blackjack\\barin_vallarsa_blackjack\\barin_vallarsa_blackjack\\formcambiosoldi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|solutionrelative:barin_vallarsa_blackjack\\formcambiosoldi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|g:\\francesco\\x scuola\\superiori\\informatica\\compiti vacanze\\blackjack\\barin_vallarsa_blackjack\\barin_vallarsa_blackjack\\formcambiosoldi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|solutionrelative:barin_vallarsa_blackjack\\formcambiosoldi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,40 +34,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "formCambioSoldi.cs [Progettazione]",
-              "DocumentMoniker": "G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI VACANZE\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\formCambioSoldi.cs",
-              "RelativeDocumentMoniker": "Barin_Vallarsa_Blackjack\\formCambioSoldi.cs",
-              "ToolTip": "G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI VACANZE\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\formCambioSoldi.cs [Progettazione]",
-              "RelativeToolTip": "Barin_Vallarsa_Blackjack\\formCambioSoldi.cs [Progettazione]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T14:52:37.643Z",
-              "EditorCaption": " [Progettazione]"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "formCambioSoldi.cs",
-              "DocumentMoniker": "G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI VACANZE\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\formCambioSoldi.cs",
-              "RelativeDocumentMoniker": "Barin_Vallarsa_Blackjack\\formCambioSoldi.cs",
-              "ToolTip": "G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI VACANZE\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\formCambioSoldi.cs",
-              "RelativeToolTip": "Barin_Vallarsa_Blackjack\\formCambioSoldi.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAzwCEAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T14:48:40.327Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Form1.cs",
               "DocumentMoniker": "G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI VACANZE\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\Form1.cs",
               "RelativeDocumentMoniker": "Barin_Vallarsa_Blackjack\\Form1.cs",
               "ToolTip": "G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI VACANZE\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\Form1.cs",
               "RelativeToolTip": "Barin_Vallarsa_Blackjack\\Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABxAAAAAAAAAA==",
+              "ViewState": "AgIAAAIBAAAAAAAAAAAuwBgAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-16T14:49:14.282Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
@@ -80,7 +56,33 @@
               "RelativeToolTip": "Barin_Vallarsa_Blackjack\\Form1.cs [Progettazione]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-16T14:20:22.783Z",
+              "IsPinned": true,
               "EditorCaption": " [Progettazione]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "formCambioSoldi.cs [Progettazione]",
+              "DocumentMoniker": "G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI VACANZE\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\formCambioSoldi.cs",
+              "RelativeDocumentMoniker": "Barin_Vallarsa_Blackjack\\formCambioSoldi.cs",
+              "ToolTip": "G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI VACANZE\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\formCambioSoldi.cs [Progettazione]",
+              "RelativeToolTip": "Barin_Vallarsa_Blackjack\\formCambioSoldi.cs [Progettazione]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-17T14:52:37.643Z",
+              "EditorCaption": " [Progettazione]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "formCambioSoldi.cs",
+              "DocumentMoniker": "G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI VACANZE\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\formCambioSoldi.cs",
+              "RelativeDocumentMoniker": "Barin_Vallarsa_Blackjack\\formCambioSoldi.cs",
+              "ToolTip": "G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI VACANZE\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\formCambioSoldi.cs",
+              "RelativeToolTip": "Barin_Vallarsa_Blackjack\\formCambioSoldi.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-17T14:48:40.327Z",
+              "EditorCaption": ""
             }
           ]
         }

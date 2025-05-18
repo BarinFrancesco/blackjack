@@ -22,7 +22,7 @@ namespace Barin_Vallarsa_Blackjack
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     credito += form.money;
-                    lblCredito.Text = $"credito: {credito.ToString()}$";
+                    lblCredito.Text = $"Credito: {credito.ToString()}$";
                 }
             }
         }
@@ -37,6 +37,7 @@ namespace Barin_Vallarsa_Blackjack
         int cartapuntata = 0;
 
         int puntata = 0; //puntate e lista puntate per annullarle
+        int ultimaPuntata = 0;
         List<int> listapuntate = new List<int>();
         int indexpuntate = -1;
         private void pnlFiches100_MouseClick(object sender, MouseEventArgs e)
@@ -99,7 +100,22 @@ namespace Barin_Vallarsa_Blackjack
             }
         }
 
-        private void button1_MouseClick(object sender, MouseEventArgs e)
+        private void pnlFiches1000_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (credito - puntata - 1000 >= 0)
+            {
+                puntata += 1000;
+                lblPuntata.Text = $"Puntata: {puntata.ToString()}$";
+                listapuntate.Add(1000);
+                indexpuntate++;
+            }
+            else
+            {
+                MessageBox.Show("Non hai altri soldi da puntare");
+            }
+        }
+
+        private void btn_cancelBet_MouseClick(object sender, MouseEventArgs e)
         {
             if (indexpuntate >= 0)
             {
@@ -178,9 +194,38 @@ namespace Barin_Vallarsa_Blackjack
 
         }
 
+        private void btn_distribuisci_Click(object sender, EventArgs e)
+        {
+            shuffledeck();
+            ultimaPuntata = puntata;
+            puntata = 0;
+            lblPuntata.Text = $"Puntata: {puntata.ToString()}$";
+            btn_dealCards.Location = new Point(btn_dealCards.Location.X, 1000);
+            lbl_dealCards.Location = new Point(lbl_dealCards.Location.X, 1000);
+            btn_cancelBet.Location = new Point(btn_cancelBet.Location.X, 1000);
+            lbl_cancelBet.Location = new Point(lbl_cancelBet.Location.X, 1000);
+            btn_lastBet.Location = new Point(btn_lastBet.Location.X, 1000);
+            lbl_lastBet.Location = new Point(lbl_lastBet.Location.X, 1000);
+        }
+
+        private void btn_addNewMoney_Click(object sender, EventArgs e)
+        {
+            using (formCambioSoldi form = new formCambioSoldi())
+            {
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    credito += form.money;
+                    lblCredito.Text = $"credito: {credito.ToString()}$";
+                }
+            }
+        }
 
 
-
+        private void btn_lastBet_Click(object sender, EventArgs e)
+        {
+            puntata = ultimaPuntata;
+            lblPuntata.Text = $"Puntata: {puntata.ToString()}$";
+        }
 
         private void panel5_Paint(object sender, PaintEventArgs e)
         {
@@ -207,21 +252,24 @@ namespace Barin_Vallarsa_Blackjack
             e.Graphics.DrawImage(img, panel7.ClientRectangle);
         }
 
-        private void btn_distribuisci_Click(object sender, EventArgs e)
-        {
-            shuffledeck();
-        }
-
-        private void btn_addNewMoney_Click(object sender, EventArgs e)
-        {
-            using(formCambioSoldi form = new formCambioSoldi())
-            {
-                if(form.ShowDialog() == DialogResult.OK)
-                {
-                    credito += form.money;
-                    lblCredito.Text = $"credito: {credito.ToString()}$";
-                }
-            }
-        }
     }
 }
+/* aggiungi quando premo bottone
+moveAnimation(btn_distribuisci, 1000);
+moveAnimation(lbl_distribuisci, 1080);
+moveAnimation(btn_cancelBet, 1000);
+moveAnimation(lbl_cancelBet, 1080);
+moveAnimation(btn_lastBet, 1000);
+moveAnimation(lbl_lastBet, 1080);
+*/
+
+/* aggiungi come funzione
+private async void moveAnimation(Control btn, int endingpoint) //animazione per lo scorrimento orizzonatale
+{
+    while (btn.Location.Y <= endingpoint)
+    {
+        btn.Location = new Point(btn.Location.X, btn.Location.Y+20);
+        await Task.Delay(1);
+    }
+
+}*/

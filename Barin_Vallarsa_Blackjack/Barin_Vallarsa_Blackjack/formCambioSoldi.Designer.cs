@@ -38,16 +38,17 @@
             // txt_input_soldi
             // 
             this.txt_input_soldi.Location = new System.Drawing.Point(373, 387);
-            this.txt_input_soldi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_input_soldi.Margin = new System.Windows.Forms.Padding(4);
             this.txt_input_soldi.Name = "txt_input_soldi";
             this.txt_input_soldi.Size = new System.Drawing.Size(331, 22);
             this.txt_input_soldi.TabIndex = 0;
+            this.txt_input_soldi.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt_input_soldi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // btn_ok
             // 
             this.btn_ok.Location = new System.Drawing.Point(371, 419);
-            this.btn_ok.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_ok.Margin = new System.Windows.Forms.Padding(4);
             this.btn_ok.Name = "btn_ok";
             this.btn_ok.Size = new System.Drawing.Size(231, 46);
             this.btn_ok.TabIndex = 1;
@@ -58,7 +59,7 @@
             // btn_annulla
             // 
             this.btn_annulla.Location = new System.Drawing.Point(610, 419);
-            this.btn_annulla.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_annulla.Margin = new System.Windows.Forms.Padding(4);
             this.btn_annulla.Name = "btn_annulla";
             this.btn_annulla.Size = new System.Drawing.Size(95, 46);
             this.btn_annulla.TabIndex = 2;
@@ -88,7 +89,7 @@
             this.Controls.Add(this.btn_annulla);
             this.Controls.Add(this.btn_ok);
             this.Controls.Add(this.txt_input_soldi);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "formCambioSoldi";
             this.Text = "formCambioSoldi";
             this.ResumeLayout(false);

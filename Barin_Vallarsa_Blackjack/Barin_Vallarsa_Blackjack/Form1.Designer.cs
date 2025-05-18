@@ -408,9 +408,9 @@
             this.lbl_playersHandValue.BackColor = System.Drawing.Color.Transparent;
             this.lbl_playersHandValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
             this.lbl_playersHandValue.ForeColor = System.Drawing.Color.White;
-            this.lbl_playersHandValue.Location = new System.Drawing.Point(482, 327);
+            this.lbl_playersHandValue.Location = new System.Drawing.Point(462, 327);
             this.lbl_playersHandValue.Name = "lbl_playersHandValue";
-            this.lbl_playersHandValue.Size = new System.Drawing.Size(191, 37);
+            this.lbl_playersHandValue.Size = new System.Drawing.Size(230, 37);
             this.lbl_playersHandValue.TabIndex = 27;
             this.lbl_playersHandValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -421,7 +421,7 @@
             this.lbl_dealersHandValue.ForeColor = System.Drawing.Color.White;
             this.lbl_dealersHandValue.Location = new System.Drawing.Point(501, 223);
             this.lbl_dealersHandValue.Name = "lbl_dealersHandValue";
-            this.lbl_dealersHandValue.Size = new System.Drawing.Size(191, 37);
+            this.lbl_dealersHandValue.Size = new System.Drawing.Size(191, 82);
             this.lbl_dealersHandValue.TabIndex = 28;
             this.lbl_dealersHandValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 

@@ -40,7 +40,7 @@ namespace Barin_Vallarsa_Blackjack
         //array con i valori della carte per generarle
         int[] valoricarte = { 11, 2, 3, 4, 5, 6, 7, 8, 9, 10,10,10,10 };
         Ccarta[] mazzi = new Ccarta[156];
-        int cartapuntata;
+        int cartaPuntata;
         List<Ccarta> manoGiocatore = new List<Ccarta>();
         int valoreManoGiocatore = 0;
         List<Ccarta> manoBanco = new List<Ccarta>();
@@ -55,6 +55,7 @@ namespace Barin_Vallarsa_Blackjack
 
         int spostamentoGiocatore = 0;
         int spostamentoBanco = 0;
+        bool bancoSballa = false;
 
         private void pnlFiches10_MouseClick(object sender, MouseEventArgs e)
         {
@@ -90,27 +91,39 @@ namespace Barin_Vallarsa_Blackjack
                 lbl_bet.Text = $"Puntata: {puntata.ToString()}$";
             } else
             {
-                MessageBox.Show("non ci sono altri soldi da ritirare");
+                croupierSpeaking("Non ci sono altri soldi da ritirare");
             }
         }
 
         private void btn_distribuisci_Click(object sender, EventArgs e)//fa iniziare il turno
         {
-            /*ultimaPuntata = puntata;
-            puntata = 0;
-            lblPuntata.Text = $"Puntata: {puntata.ToString()}$";*/
-            
-            showPlayingButtons(); //all'inizio del turno si mostrano i pultanti di gioco e si danno le prime 4 carte 2 al giocatore e 2 al banco
-            if (cartapuntata > 155)
+
+
+            if (puntata != 0)
             {
-                shuffledeck();
+                if (cartaPuntata > 155)
+                {
+                    shuffledeck();
+                }
+                addCard(true);
+                addCard(true);
+                addCard(false);
+                addCard(false);
+                showPlayingButtons(); //all'inizio del turno si mostrano i pulsanti di gioco e si danno le prime 4 carte 2 al giocatore e 2 al banco
+                if ((manoGiocatore[0].value == 11 && manoGiocatore[1].value == 10 ) || (manoGiocatore[0].value == 10 && manoGiocatore[1].value == 11))
+                {
+                    lbl_playersHandValue.Text = "BLACKJACK";
+                }
             }
-            addCard(true);
-            addCard(true);
-            addCard(false);
-            addCard(false);
-            lbl_playersHandValue.Text = valoreManoGiocatore.ToString();//si mostrano in output i valori
-            lbl_dealersHandValue.Text = valoreManoBanco.ToString();
+            else if (credito > 0)
+            {
+                croupierSpeaking("Devi puntare dei soldi per giocare amico");
+            }
+            else
+            {
+                croupierSpeaking("Hai finito i soldi, caricane altri");
+            }
+
         }
 
         private void btn_addNewMoney_Click(object sender, EventArgs e)
@@ -126,43 +139,26 @@ namespace Barin_Vallarsa_Blackjack
 
         private void btn_doubleDown_Click(object sender, EventArgs e)
         {
-
+            if (credito - (puntata * 2) >= 0)
+            {
+                addCard(true);
+                puntata *= 2;
+                dealersturn();
+            } else
+            {
+                croupierSpeaking("Non hai abbastanza soldi per raddoppiare");
+            }
         }
 
         private void btn_call_Click(object sender, EventArgs e)
         {
+
             addCard(true);
-            if (valoreManoGiocatore > 21)//se il giocatore ha sballato controlliamo che abbia delgi assi per poterne abbassare il valore
-            {
-                bool abbassato = true;
-                while (abbassato) //si inizializza un ciclo ceh va a vedere se abbiamo abbassato almeno un asso durante il ciclo
-                {
-                    abbassato = false;
-                    valoreManoGiocatore = 0;
-                    for (int i = 0; i < manoGiocatore.Count; i++) //con un ciclo facciamo la somma di tutte le carte, ed abbassiamo il primo asso con valore 11 che troviamo
-                    {
-                        if (manoGiocatore[i].special == "asso" && manoGiocatore[i].value == 11 && !abbassato)
-                        {
-                            manoGiocatore[i].abbassaAsso();
-                            abbassato = true;
-                        }
-                        valoreManoGiocatore += manoGiocatore[i].value;
-                    }
-                    if (valoreManoGiocatore <= 21) // se la nuova somma non supera 21 allora chiudiamo il ciclo
-                    {
-                        lbl_playersHandValue.Text = valoreManoGiocatore.ToString();
-                        return;
-                    }
-                }//il ciclo si ripete empre purchè almleno un asso venga abbassato
-                lbl_playersHandValue.Text = "Hai perso";//se nessun' asso viene abbassato o se il totale è comunque sopra dopo aver abbassato tutti gli assi allora il giocatore ha perso
-                return;
-            }
-            lbl_playersHandValue.Text = valoreManoGiocatore.ToString();// se è minore di 21 il giocatore puù continuare a giocare
         }
 
         private void btn_stop_Click(object sender, EventArgs e)
         {
-            showBettingButtons();
+            dealersturn();
         }
 
         private void btn_split_Click(object sender, EventArgs e)
@@ -181,7 +177,7 @@ namespace Barin_Vallarsa_Blackjack
             }
             else
             {
-                MessageBox.Show("Non hai tutti questi soldi da puntare");
+                croupierSpeaking("Non hai tutti questi soldi da puntare");
             }
         }
 
@@ -189,16 +185,79 @@ namespace Barin_Vallarsa_Blackjack
         {
             if (scelta)
             {
-                manoGiocatore.Add(mazzi[cartapuntata]);
-                valoreManoGiocatore += mazzi[cartapuntata].value;
+                manoGiocatore.Add(mazzi[cartaPuntata]);
+                valoreManoGiocatore += mazzi[cartaPuntata].value;
+
+                if (valoreManoGiocatore > 21)//se il giocatore ha sballato controlliamo che abbia degli assi per poterne abbassare il valore
+                {
+                    bool abbassato = true;
+                    while (abbassato) //si inizializza un ciclo ceh va a vedere se abbiamo abbassato almeno un asso durante il ciclo
+                    {
+                        abbassato = false;
+                        valoreManoGiocatore = 0;
+                        for (int i = 0; i < manoGiocatore.Count; i++) //con un ciclo facciamo la somma di tutte le carte, ed abbassiamo il primo asso con valore 11 che troviamo
+                        {
+                            if (manoGiocatore[i].special == "asso" && manoGiocatore[i].value == 11 && !abbassato)
+                            {
+                                manoGiocatore[i].abbassaAsso();
+                                abbassato = true;
+                            }
+                            valoreManoGiocatore += manoGiocatore[i].value;
+                        }
+                        if (valoreManoGiocatore <= 21) // se la nuova somma non supera 21 allora chiudiamo il ciclo
+                        {
+                            lbl_playersHandValue.Text = valoreManoGiocatore.ToString();
+                            CreatePanel(mazzi[cartaPuntata], scelta);
+                            cartaPuntata++;
+                            return;
+                        }
+                    }//il ciclo si ripete sempre purchè almleno un asso venga abbassato
+                    lbl_playersHandValue.Text = "Hai sballato";//se nessun' asso viene abbassato o se il totale è comunque sopra dopo aver abbassato tutti gli assi allora il giocatore ha perso
+                    CreatePanel(mazzi[cartaPuntata], scelta);
+                    cartaPuntata++;
+                    return;
+                }
+                lbl_playersHandValue.Text = valoreManoGiocatore.ToString();// se è minore di 21 il giocatore puù continuare a giocare
             } else
             {
-                manoBanco.Add(mazzi[cartapuntata]);
-                valoreManoBanco += mazzi[cartapuntata].value;
+                manoBanco.Add(mazzi[cartaPuntata]);
+                valoreManoBanco += mazzi[cartaPuntata].value;
+
+                if (valoreManoBanco > 21)
+                {
+                    bool abbassato = true;
+                    while (abbassato) 
+                    {
+                        abbassato = false;
+                        valoreManoBanco = 0;
+                        for (int i = 0; i < manoBanco.Count; i++) 
+                        {
+                            if (manoBanco[i].special == "asso" && manoBanco[i].value == 11 && !abbassato)
+                            {
+                                manoBanco[i].abbassaAsso();
+                                abbassato = true;
+                            }
+                            valoreManoBanco += manoBanco[i].value;
+                        }
+                        if (valoreManoBanco <= 21) 
+                        {
+                            lbl_dealersHandValue.Text = valoreManoBanco.ToString();
+                            CreatePanel(mazzi[cartaPuntata], scelta);
+                            cartaPuntata++;
+                            return;
+                        }
+                    }
+                    lbl_dealersHandValue.Text = "Il banco ha sballato";
+                    bancoSballa = true;
+                    CreatePanel(mazzi[cartaPuntata], scelta);
+                    cartaPuntata++;
+                    return;
+                }
+                lbl_dealersHandValue.Text = valoreManoBanco.ToString();
             }
 
-            CreatePanel(mazzi[cartapuntata], scelta);
-            cartapuntata++;
+            CreatePanel(mazzi[cartaPuntata], scelta);
+            cartaPuntata++;
         }
 
         private void shuffledeck()//mescolo randomicamente i mazzi
@@ -262,7 +321,7 @@ namespace Barin_Vallarsa_Blackjack
                 }
 
             }
-            cartapuntata = 0;
+            cartaPuntata = 0;
         }
 
         private void showPlayingButtons()//funzione che fa muovere su i bottoni per giocare e giù quelli per puntare
@@ -369,6 +428,59 @@ namespace Barin_Vallarsa_Blackjack
             Controls.Add(nuovoPanel);
             nuovoPanel.BringToFront();
             carteSulTavolo.Add(nuovoPanel);
+        }
+
+        private void dealersturn()
+        {
+            while (valoreManoBanco < 17)
+            {
+                addCard(false);
+            }
+
+            if(valoreManoGiocatore > valoreManoBanco || bancoSballa)
+            {
+                credito += puntata;
+                lblCredito.Text = credito.ToString();
+                croupierSpeaking("Complimenti, hai vinto");
+            } else if (valoreManoGiocatore < valoreManoBanco && !bancoSballa)
+            {
+                credito -= puntata;
+                lblCredito.Text = credito.ToString();
+                croupierSpeaking("Peccato, hai perso");
+            } else
+            {
+                croupierSpeaking("Avete pareggiato");
+            }
+
+            ultimaPuntata = puntata;
+            puntata = 0;
+            bancoSballa = false;
+            lbl_bet.Text = $"Puntata: {puntata.ToString()}$";
+            lbl_dealersHandValue.Text = "";
+            lbl_playersHandValue.Text = "";
+            spostamentoBanco = 0;
+            spostamentoGiocatore = 0;
+            valoreManoBanco = 0;
+            valoreManoGiocatore = 0;
+            manoBanco.Clear();
+            manoGiocatore.Clear();
+            for(int i = 0; i < carteSulTavolo.Count; i++)
+            {
+                carteSulTavolo[i].Dispose();
+            }
+            carteSulTavolo = new List<Control>();
+            showBettingButtons();
+        }
+
+        private void croupierSpeaking(string message)
+        {
+            using (dealerSpeaking form = new dealerSpeaking(message))
+            {
+                if(form.ShowDialog() == DialogResult.OK)
+                {
+
+                }
+            }
         }
     }
 }

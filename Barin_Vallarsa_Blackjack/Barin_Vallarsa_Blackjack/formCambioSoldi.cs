@@ -69,5 +69,9 @@ namespace Barin_Vallarsa_Blackjack
             }
         }
 
+        private void lbl_dealerVoice_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

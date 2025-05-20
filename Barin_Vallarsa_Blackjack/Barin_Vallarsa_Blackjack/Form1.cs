@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Barin_Vallarsa_Blackjack
 {
-    public partial class Form1: Form
+    public partial class Form1 : Form
     {
         public Form1()
         {
@@ -33,12 +33,12 @@ namespace Barin_Vallarsa_Blackjack
 
         //random per generare le carte in posti casuali
         Random random = new Random(Environment.TickCount);
-
+        Timer timer;
         //credito della persona
         int credito = 0;
 
         //array con i valori della carte per generarle
-        int[] valoricarte = { 11, 2, 3, 4, 5, 6, 7, 8, 9, 10,10,10,10 };
+        int[] valoricarte = { 11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10 };
         Ccarta[] mazzi = new Ccarta[156];
         int cartaPuntata;
         List<Ccarta> manoGiocatore = new List<Ccarta>();
@@ -56,6 +56,7 @@ namespace Barin_Vallarsa_Blackjack
         int spostamentoGiocatore = 0;
         int spostamentoBanco = 0;
         bool bancoSballa = false;
+        bool giocatoreSballa = false;
 
         private void pnlFiches10_MouseClick(object sender, MouseEventArgs e)
         {
@@ -67,7 +68,7 @@ namespace Barin_Vallarsa_Blackjack
             increaseBet(20);
         }
 
-        private void pnlFiches100_MouseClick(object sender, MouseEventArgs e) 
+        private void pnlFiches100_MouseClick(object sender, MouseEventArgs e)
         {
             increaseBet(100);
         }
@@ -89,7 +90,8 @@ namespace Barin_Vallarsa_Blackjack
                 listapuntate.RemoveAt(indexpuntate);
                 indexpuntate--;
                 lbl_bet.Text = $"Puntata: {puntata.ToString()}$";
-            } else
+            }
+            else
             {
                 croupierSpeaking("Non ci sono altri soldi da ritirare");
             }
@@ -105,14 +107,17 @@ namespace Barin_Vallarsa_Blackjack
                 {
                     shuffledeck();
                 }
-                addCard(true);
-                addCard(true);
-                addCard(false);
-                addCard(false);
-                showPlayingButtons(); //all'inizio del turno si mostrano i pulsanti di gioco e si danno le prime 4 carte 2 al giocatore e 2 al banco
-                if ((manoGiocatore[0].value == 11 && manoGiocatore[1].value == 10 ) || (manoGiocatore[0].value == 10 && manoGiocatore[1].value == 11))
+
+                showPlayingButtons();//all'inizio del turno si mostrano i pulsanti di gioco e si danno le prime 4 carte 2 al giocatore e 2 al banco
+                addCard(true, false);
+                addCard(true, false);
+                addCard(false, false);
+                addCard(false, true);
+                
+                if ((manoGiocatore[0].value == 11 && manoGiocatore[1].value == 10) || (manoGiocatore[0].value == 10 && manoGiocatore[1].value == 11))
                 {
                     lbl_playersHandValue.Text = "BLACKJACK";
+                    checkifwin();
                 }
             }
             else if (credito > 0)
@@ -137,23 +142,32 @@ namespace Barin_Vallarsa_Blackjack
             lbl_bet.Text = $"Puntata: {puntata.ToString()}$";
         }
 
-        private void btn_doubleDown_Click(object sender, EventArgs e)
+        private void btn_doubleDown_Click(object sender, EventArgs e) //raddoppio
         {
-            if (credito - (puntata * 2) >= 0)
+            if (manoGiocatore.Count == 2)
             {
-                addCard(true);
-                puntata *= 2;
-                dealersturn();
+                if (credito - (puntata * 2) >= 0)
+                {
+                    addCard(true, false);
+                    puntata += puntata;
+                    lbl_bet.Text = $"Puntata: {puntata.ToString()}$";
+                    dealersturn();
+                }
+                else
+                {
+                    croupierSpeaking("Non hai abbastanza soldi per raddoppiare");
+                }
             } else
             {
-                croupierSpeaking("Non hai abbastanza soldi per raddoppiare");
+                croupierSpeaking("Può raddoppiare solo qunando ha le prime 2 carte");
             }
+
         }
 
         private void btn_call_Click(object sender, EventArgs e)
         {
 
-            addCard(true);
+            addCard(true, false);
         }
 
         private void btn_stop_Click(object sender, EventArgs e)
@@ -181,7 +195,7 @@ namespace Barin_Vallarsa_Blackjack
             }
         }
 
-        private void addCard(bool scelta)//funzione che aggiunge la carta al giocatore
+        private void addCard(bool scelta, bool hiddencard)//funzione che aggiunge la carta al giocatore
         {
             if (scelta)
             {
@@ -207,18 +221,21 @@ namespace Barin_Vallarsa_Blackjack
                         if (valoreManoGiocatore <= 21) // se la nuova somma non supera 21 allora chiudiamo il ciclo
                         {
                             lbl_playersHandValue.Text = valoreManoGiocatore.ToString();
-                            CreatePanel(mazzi[cartaPuntata], scelta);
+                            CreatePanel(mazzi[cartaPuntata], scelta, false);
                             cartaPuntata++;
                             return;
                         }
                     }//il ciclo si ripete sempre purchè almleno un asso venga abbassato
                     lbl_playersHandValue.Text = "Hai sballato";//se nessun' asso viene abbassato o se il totale è comunque sopra dopo aver abbassato tutti gli assi allora il giocatore ha perso
-                    CreatePanel(mazzi[cartaPuntata], scelta);
+                    CreatePanel(mazzi[cartaPuntata], scelta, false);
+                    giocatoreSballa = true;
                     cartaPuntata++;
+                    checkifwin();
                     return;
                 }
                 lbl_playersHandValue.Text = valoreManoGiocatore.ToString();// se è minore di 21 il giocatore puù continuare a giocare
-            } else
+            }
+            else
             {
                 manoBanco.Add(mazzi[cartaPuntata]);
                 valoreManoBanco += mazzi[cartaPuntata].value;
@@ -226,11 +243,11 @@ namespace Barin_Vallarsa_Blackjack
                 if (valoreManoBanco > 21)
                 {
                     bool abbassato = true;
-                    while (abbassato) 
+                    while (abbassato)
                     {
                         abbassato = false;
                         valoreManoBanco = 0;
-                        for (int i = 0; i < manoBanco.Count; i++) 
+                        for (int i = 0; i < manoBanco.Count; i++)
                         {
                             if (manoBanco[i].special == "asso" && manoBanco[i].value == 11 && !abbassato)
                             {
@@ -239,30 +256,36 @@ namespace Barin_Vallarsa_Blackjack
                             }
                             valoreManoBanco += manoBanco[i].value;
                         }
-                        if (valoreManoBanco <= 21) 
+                        if (valoreManoBanco <= 21)
                         {
                             lbl_dealersHandValue.Text = valoreManoBanco.ToString();
-                            CreatePanel(mazzi[cartaPuntata], scelta);
+                            CreatePanel(mazzi[cartaPuntata], scelta, false);
                             cartaPuntata++;
                             return;
                         }
                     }
                     lbl_dealersHandValue.Text = "Il banco ha sballato";
                     bancoSballa = true;
-                    CreatePanel(mazzi[cartaPuntata], scelta);
+                    CreatePanel(mazzi[cartaPuntata], scelta, false);
                     cartaPuntata++;
                     return;
                 }
-                lbl_dealersHandValue.Text = valoreManoBanco.ToString();
-            }
+                if (!hiddencard)
+                {
+                    lbl_dealersHandValue.Text = valoreManoBanco.ToString();
+                } else
+                {
+                    lbl_dealersHandValue.Text = $"{valoreManoBanco - mazzi[cartaPuntata].value}";
+                }
 
-            CreatePanel(mazzi[cartaPuntata], scelta);
-            cartaPuntata++;
+            }
+                CreatePanel(mazzi[cartaPuntata], scelta, hiddencard);
+                cartaPuntata++;
         }
 
         private void shuffledeck()//mescolo randomicamente i mazzi
         {
-            for (int i = 0; i < 156; i++) 
+            for (int i = 0; i < 156; i++)
             {
                 mazzi[i] = null;
             }
@@ -388,7 +411,7 @@ namespace Barin_Vallarsa_Blackjack
             }
         }
 
-        private void CreatePanel(Ccarta carta, bool scelta /*int valore, string seme, string speciale*/)//funzione per aggiungere la carta visivamente
+        private void CreatePanel(Ccarta carta, bool scelta, bool hiddencard )//funzione per aggiungere la carta visivamente
         {
             string seme = carta.seed;
             int valore = carta.value;
@@ -398,31 +421,39 @@ namespace Barin_Vallarsa_Blackjack
             {
                 nuovoPanel.Location = new Point((390 + spostamentoGiocatore), 300);
                 spostamentoGiocatore += 20;
-            } else
+            }
+            else
             {
                 nuovoPanel.Location = new Point((400 + spostamentoBanco), 80);
                 spostamentoBanco += 20;
             }
 
-                nuovoPanel.BackColor = Color.Transparent;
-            switch (carta.special)
+            nuovoPanel.BackColor = Color.Transparent;
+            if (!hiddencard)
             {
-                case "no":
-                    nuovoPanel.BackgroundImage = Image.FromFile($"../../Images/mazzo/{valore}-{seme}.jpg");
-                    break;
-                case "asso":
-                    nuovoPanel.BackgroundImage = Image.FromFile($"../../Images/mazzo/asso-{seme}.jpg");
-                    break;
-                case "jack":
-                    nuovoPanel.BackgroundImage = Image.FromFile($"../../Images/mazzo/jack-{seme}.jpg");
-                    break;
-                case "donna":
-                    nuovoPanel.BackgroundImage = Image.FromFile($"../../Images/mazzo/donna-{seme}.jpg");
-                    break;
-                case "re":
-                    nuovoPanel.BackgroundImage = Image.FromFile($"../../Images/mazzo/re-{seme}.jpg");
-                    break;
+                switch (carta.special)
+                {
+                    case "no":
+                        nuovoPanel.BackgroundImage = Image.FromFile($"../../Images/mazzo/{valore}-{seme}.jpg");
+                        break;
+                    case "asso":
+                        nuovoPanel.BackgroundImage = Image.FromFile($"../../Images/mazzo/asso-{seme}.jpg");
+                        break;
+                    case "jack":
+                        nuovoPanel.BackgroundImage = Image.FromFile($"../../Images/mazzo/jack-{seme}.jpg");
+                        break;
+                    case "donna":
+                        nuovoPanel.BackgroundImage = Image.FromFile($"../../Images/mazzo/donna-{seme}.jpg");
+                        break;
+                    case "re":
+                        nuovoPanel.BackgroundImage = Image.FromFile($"../../Images/mazzo/re-{seme}.jpg");
+                        break;
+                }
+            } else
+            {
+                nuovoPanel.BackgroundImage = Image.FromFile($"../../Images/mazzo/carta-coperta.jpg");
             }
+
             
             nuovoPanel.BackgroundImageLayout = ImageLayout.Stretch;
             Controls.Add(nuovoPanel);
@@ -432,29 +463,79 @@ namespace Barin_Vallarsa_Blackjack
 
         private void dealersturn()
         {
+            lbl_dealersHandValue.Text = valoreManoBanco.ToString();
+            string path = "";
+            switch (manoBanco[1].special)
+            {
+                case "asso":
+                    path = $"asso";
+                    break;
+                case "jack":
+                    path = $"jack";
+                    break;
+                case "donna":
+                    path = $"donna";
+                    break;
+                case "re":
+                    path = $"re";
+                    break;
+                default:
+                    path = $"{manoBanco[1].value}";
+                    break;
+            }
+            path = "../../Images/mazzo/" + path + $"-{manoBanco[1].seed}.jpg" ;
+            carteSulTavolo[3].BackgroundImage = Image.FromFile(path);
+            Task.Delay(1500).GetAwaiter().GetResult();
             while (valoreManoBanco < 17)
             {
-                addCard(false);
+                addCard(false, false);
             }
+            checkifwin();
+        }
 
-            if(valoreManoGiocatore > valoreManoBanco || bancoSballa)
+        private void croupierSpeaking(string message)
+        {
+            using (dealerSpeaking form = new dealerSpeaking(message))
+            {
+                form.StartPosition = FormStartPosition.Manual;
+                form.Location = new Point(650, 100);
+
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+
+                }
+            }
+        }
+
+        private void checkifwin()
+        {
+            if ((manoGiocatore[0].value == 11 && manoGiocatore[1].value == 10) || (manoGiocatore[0].value == 10 && manoGiocatore[1].value == 11))
+            {
+                credito += (puntata + puntata / 2);
+                lblCredito.Text = credito.ToString();
+                croupierSpeaking("Complimenti, hai vinto");
+            }
+            else if ((valoreManoGiocatore > valoreManoBanco || bancoSballa) && !giocatoreSballa)
             {
                 credito += puntata;
                 lblCredito.Text = credito.ToString();
                 croupierSpeaking("Complimenti, hai vinto");
-            } else if (valoreManoGiocatore < valoreManoBanco && !bancoSballa)
+            }
+            else if ((valoreManoGiocatore < valoreManoBanco || giocatoreSballa) && !bancoSballa)
             {
                 credito -= puntata;
                 lblCredito.Text = credito.ToString();
                 croupierSpeaking("Peccato, hai perso");
-            } else
+            }
+            else
             {
                 croupierSpeaking("Avete pareggiato");
             }
-
+            
             ultimaPuntata = puntata;
             puntata = 0;
             bancoSballa = false;
+            giocatoreSballa = false;
             lbl_bet.Text = $"Puntata: {puntata.ToString()}$";
             lbl_dealersHandValue.Text = "";
             lbl_playersHandValue.Text = "";
@@ -464,7 +545,7 @@ namespace Barin_Vallarsa_Blackjack
             valoreManoGiocatore = 0;
             manoBanco.Clear();
             manoGiocatore.Clear();
-            for(int i = 0; i < carteSulTavolo.Count; i++)
+            for (int i = 0; i < carteSulTavolo.Count; i++)
             {
                 carteSulTavolo[i].Dispose();
             }
@@ -472,16 +553,6 @@ namespace Barin_Vallarsa_Blackjack
             showBettingButtons();
         }
 
-        private void croupierSpeaking(string message)
-        {
-            using (dealerSpeaking form = new dealerSpeaking(message))
-            {
-                if(form.ShowDialog() == DialogResult.OK)
-                {
-
-                }
-            }
-        }
     }
 }
 /* aggiungi quando premo bottone
@@ -502,4 +573,4 @@ private async void moveAnimation(Control btn, int endingpoint) //animazione per 
         await Task.Delay(1);
     }
 
-}*/
+}*/    

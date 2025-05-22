@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ccarta.cs" />
+    <Compile Include="Cpersonealbanco.cs" />
     <Compile Include="dealerSpeaking.cs">
       <SubType>Form</SubType>
     </Compile>

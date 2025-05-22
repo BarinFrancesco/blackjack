@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Barin_Vallarsa_Blackjack
 {
-    internal class Ccarta
+    public class Ccarta
     {
         public int value { get; private set; }
         public string seed { get; private set; }

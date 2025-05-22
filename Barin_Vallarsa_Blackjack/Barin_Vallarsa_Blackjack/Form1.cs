@@ -132,8 +132,15 @@ namespace Barin_Vallarsa_Blackjack
 
         private void btn_lastBet_Click(object sender, EventArgs e)//lascia come puntata quella del turno precedente
         {
-            puntata = ultimaPuntata;
-            lbl_bet.Text = $"Puntata: {puntata.ToString()}$";
+            if(credito - ultimaPuntata >= 0)
+            {
+                puntata = ultimaPuntata;
+                lbl_bet.Text = $"Puntata: {puntata.ToString()}$";
+            } else
+            {
+                croupierSpeaking("Non ha abbastanza soldi per piazzare questa puntata");
+            }
+
         }
 
         private void btn_doubleDown_Click(object sender, EventArgs e) //raddoppio

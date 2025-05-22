@@ -17,8 +17,10 @@ namespace Barin_Vallarsa_Blackjack
         public Form1()
         {
             InitializeComponent();
-            shuffledeck();
+            shuffledeck(); // quando inizio il programma moescolo il mazzo e chiedo subito i soldi
             changeMoney();
+
+            // partegrafica che serve a rendere i bottoni rotondi
             GraphicsPath palla = new GraphicsPath();
             palla.AddEllipse(0, 0, btn_dealCards.Width, btn_dealCards.Height);
             btn_dealCards.Region = new Region(palla);
@@ -41,7 +43,7 @@ namespace Barin_Vallarsa_Blackjack
         int[] valoricarte = { 11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10 };
         Ccarta[] mazzi = new Ccarta[156];
         int cartaPuntata;
-        List<Control> carteSulTavolo = new List<Control>();
+        List<Control> carteSulTavolo = new List<Control>(); //lista di pannelli, per cancellare poi le carte presenti sul tavolo
 
         int puntata = 0; //puntate e lista puntate per annullarle
         int ultimaPuntata = 0;
@@ -51,7 +53,7 @@ namespace Barin_Vallarsa_Blackjack
         CPersonealbanco Giocatore = new CPersonealbanco();
         CPersonealbanco Banco = new CPersonealbanco();
 
-        private void pnlFiches10_MouseClick(object sender, MouseEventArgs e)
+        private void pnlFiches10_MouseClick(object sender, MouseEventArgs e) //funzioni per puntare soldi, richiamano tutte la stessa funzione e gli passano come parametro il valore da aggiungere
         {
             increaseBet(10);
         }
@@ -75,7 +77,7 @@ namespace Barin_Vallarsa_Blackjack
             increaseBet(1000);
         }
 
-        private void btn_cancelBet_MouseClick(object sender, MouseEventArgs e)//cancella l'ultima scommessa fatta, per farlo (prima) le salva in un elenco e lo legge al contrario
+        private void btn_cancelBet_MouseClick(object sender, MouseEventArgs e) //cancella l'ultima scommessa fatta, per farlo (prima) le salva in un stack e poi lo legge al contrario usando metodo LIFO 
         {
             if (indexpuntate >= 0)
             {
@@ -114,7 +116,7 @@ namespace Barin_Vallarsa_Blackjack
                     checkifwin();
                 }
             }
-            else if (credito > 0)
+            else if (credito > 0) // se l'utente non ha soldi o non ne ha caricati ne lancia il rispettivo messaggio
             {
                 croupierSpeaking("Devi puntare dei soldi per giocare amico");
             }
@@ -125,10 +127,6 @@ namespace Barin_Vallarsa_Blackjack
 
         }
 
-        private void btn_addNewMoney_Click(object sender, EventArgs e)
-        {
-            changeMoney();//lancia lo stesso form dell'inizio
-        }
 
         private void btn_lastBet_Click(object sender, EventArgs e)//lascia come puntata quella del turno precedente
         {
@@ -143,8 +141,14 @@ namespace Barin_Vallarsa_Blackjack
 
         }
 
-        private void btn_doubleDown_Click(object sender, EventArgs e) //raddoppio
+        private void btn_addNewMoney_Click(object sender, EventArgs e)//lancia lo stesso form dell'inizio se l'utente vuole giocare con altri soldi
         {
+            changeMoney();
+        }
+
+
+        private void btn_doubleDown_Click(object sender, EventArgs e) //raddoppio, se l'utente raddoppia la puntata gli viena data una sola carta e la sua mano finisce 
+        {                                                             //il raddoppio può essere fatto solo con 2 carte in tavola
             if (Giocatore.Mano.Count == 2)
             {
                 if (credito - (puntata * 2) >= 0)
@@ -166,13 +170,13 @@ namespace Barin_Vallarsa_Blackjack
 
         }
 
-        private void btn_call_Click(object sender, EventArgs e)
+        private void btn_call_Click(object sender, EventArgs e) // se l'utente chiama carta viene aggiunta una carta alla sua mano con la funzione addcard
         {
             Task.Delay(500).GetAwaiter().GetResult();
             addCard(true, false);
         }
 
-        private void btn_stop_Click(object sender, EventArgs e)
+        private void btn_stop_Click(object sender, EventArgs e) //quando l'utente vuole finire la sua mano comincia quella del dealer
         {
             dealersturn();
         }
@@ -197,8 +201,8 @@ namespace Barin_Vallarsa_Blackjack
             }
         }
 
-        private void addCard(bool scelta, bool hiddencard)//funzione che aggiunge la carta al giocatore
-        {
+        private void addCard(bool scelta, bool hiddencard)//funzione che aggiunge la carta alla persona che la richiede true = giocatore / false = dealer
+        {                                                 // per creare fisicamente la carta viene usata la funzione showCard  
             if (scelta)
             {
                 Giocatore.Mano.Add(mazzi[cartaPuntata]);
@@ -225,7 +229,7 @@ namespace Barin_Vallarsa_Blackjack
                         if (Giocatore.ValoreMano <= 21) // se la nuova somma non supera 21 allora chiudiamo il ciclo, altrimenti si ripete il ciclo
                         {
                             lbl_playersHandValue.Text = Giocatore.ValoreMano.ToString();
-                            CreatePanel(mazzi[cartaPuntata], scelta, false);
+                            showCard(mazzi[cartaPuntata], scelta, false);
                             cartaPuntata++;
                             return;
                         }
@@ -233,7 +237,7 @@ namespace Barin_Vallarsa_Blackjack
                     }//il ciclo si ripete sempre purchè almleno un asso venga abbassato
 
                     lbl_playersHandValue.Text = "Hai sballato";//se nessun asso viene abbassato ed il totale è comunque sopra il giocatore ha perso
-                    CreatePanel(mazzi[cartaPuntata], scelta, false);
+                    showCard(mazzi[cartaPuntata], scelta, false);
                     Giocatore.Sballa = true;
                     cartaPuntata++;
                     checkifwin();
@@ -268,7 +272,7 @@ namespace Barin_Vallarsa_Blackjack
                         if (Banco.ValoreMano <= 21)
                         {
                             lbl_dealersHandValue.Text = Banco.ValoreMano.ToString();
-                            CreatePanel(mazzi[cartaPuntata], scelta, hiddencard);
+                            showCard(mazzi[cartaPuntata], scelta, hiddencard);
                             cartaPuntata++;
                             return;
                         }
@@ -276,12 +280,12 @@ namespace Barin_Vallarsa_Blackjack
 
                     lbl_dealersHandValue.Text = "Il banco ha sballato";
                     Banco.Sballa = true;
-                    CreatePanel(mazzi[cartaPuntata], scelta, false);
+                    showCard(mazzi[cartaPuntata], scelta, false);
                     cartaPuntata++;
                     return;
                 }
 
-                if (!hiddencard)
+                if (!hiddencard) // il banco deve tenere una carta comerta, se è il caso allora non ne mostra neanche il valore
                 {
                     lbl_dealersHandValue.Text = Banco.ValoreMano.ToString();
                 }
@@ -291,25 +295,12 @@ namespace Barin_Vallarsa_Blackjack
                 }
 
             }
-            CreatePanel(mazzi[cartaPuntata], scelta, hiddencard);
+            showCard(mazzi[cartaPuntata], scelta, hiddencard);
             cartaPuntata++;
         }
 
 
-        private void changeMoney()
-        {
-            using (formCambioSoldi form = new formCambioSoldi())
-            {
-                if (form.ShowDialog() == DialogResult.OK)
-                {
-                    credito += form.money;
-                    lblCredito.Text = $"credito: {credito.ToString()}$";
-                }
-            }
-        }
-
-
-        private void CreatePanel(Ccarta carta, bool scelta, bool hiddencard)//funzione per aggiungere la carta visivamente
+        private void showCard(Ccarta carta, bool scelta, bool hiddencard)//funzione per aggiungere la carta visivamente
         {
             string seme = carta.seed;
             int valore = carta.value;
@@ -361,7 +352,7 @@ namespace Barin_Vallarsa_Blackjack
         }
 
 
-        private void dealersturn()
+        private void dealersturn() //quando tocca al dealer quest'ultimo rivela la carta coperta e chiama fino al 17, poi controlla chi ha vinto
         {
             lbl_dealersHandValue.Text = Banco.ValoreMano.ToString();
             string path = "";
@@ -393,7 +384,6 @@ namespace Barin_Vallarsa_Blackjack
                 Banco.Blackjack = true;
             }
 
-
             while (Banco.ValoreMano < 17)
             {
                 Task.Delay(500).GetAwaiter().GetResult();
@@ -403,7 +393,7 @@ namespace Barin_Vallarsa_Blackjack
         }
 
 
-        private void checkifwin()
+        private void checkifwin() //tramite le condizioni di vittoria si vede chi ha vinto e si dano i rispettivi soldi in base alla puntata ed al tipo di vincita
         {
             if (Giocatore.Blackjack)
             {
@@ -428,7 +418,7 @@ namespace Barin_Vallarsa_Blackjack
                 croupierSpeaking("Avete pareggiato");
             }
 
-            ultimaPuntata = puntata;
+            ultimaPuntata = puntata;// alla fine si resettano tutti i valori
             puntata = 0;
             lbl_bet.Text = $"Puntata: {puntata.ToString()}$";
             lbl_dealersHandValue.Text = "";
@@ -515,7 +505,7 @@ namespace Barin_Vallarsa_Blackjack
 
         private void showPlayingButtons()//funzione che fa muovere su i bottoni per giocare e giù quelli per puntare
         {
-            btn_dealCards.Location = new Point(btn_dealCards.Location.X, 1000);//spostiamo i bottoni che non servoo fuori dalla portata dell'utente
+            btn_dealCards.Location = new Point(btn_dealCards.Location.X, 1000);
             lbl_dealCards.Location = new Point(lbl_dealCards.Location.X, 1000);
             btn_cancelBet.Location = new Point(btn_cancelBet.Location.X, 1000);
             lbl_cancelBet.Location = new Point(lbl_cancelBet.Location.X, 1000);
@@ -540,9 +530,9 @@ namespace Barin_Vallarsa_Blackjack
         }
 
 
-        private void showBettingButtons()//funzione che fa muovere su i bottoni per giocare e giù quelli per puntare
+        private void showBettingButtons()//funzione che fa muovere giù i bottoni per giocare e su quelli per puntare
         {
-            btn_dealCards.Location = new Point(btn_dealCards.Location.X, 400);//spostiamo i bottoni che non servoo fuori dalla portata dell'utente
+            btn_dealCards.Location = new Point(btn_dealCards.Location.X, 400);
             lbl_dealCards.Location = new Point(lbl_dealCards.Location.X, 475);
             btn_cancelBet.Location = new Point(btn_cancelBet.Location.X, 400);
             lbl_cancelBet.Location = new Point(lbl_cancelBet.Location.X, 475);
@@ -567,12 +557,32 @@ namespace Barin_Vallarsa_Blackjack
         }
 
 
-        private void croupierSpeaking(string message)
+        private void changeMoney() // lancia il form per aggiungere soldi al credito del giocatore
+        {
+            using (formCambioSoldi form = new formCambioSoldi())
+            {
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    if(credito + form.money <= 999999999)
+                    {
+                        credito += form.money;
+                        lblCredito.Text = $"credito: {credito.ToString()}$";
+                    } else
+                    {
+                        croupierSpeaking("Ci dispiace, ma non siamo capaci di gestire una quantità di denaro così grande");
+                    }
+
+                }
+            }
+        }
+
+
+        private void croupierSpeaking(string message) // funzione per comunicare con l'utente alternativa al messagebox
         {
             using (dealerSpeaking form = new dealerSpeaking(message))
             {
                 form.StartPosition = FormStartPosition.Manual;
-                form.Location = new Point(650, 100);
+                form.Location = new Point(700, 100);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
 

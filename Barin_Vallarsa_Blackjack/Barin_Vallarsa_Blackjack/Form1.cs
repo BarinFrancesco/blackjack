@@ -98,7 +98,7 @@ namespace Barin_Vallarsa_Blackjack
 
             if (puntata != 0)
             {
-                if (cartaPuntata > 155)
+                if (cartaPuntata >= 155)
                 {
                     shuffledeck();
                 }

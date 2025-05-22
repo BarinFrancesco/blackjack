@@ -3,26 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace Barin_Vallarsa_Blackjack
 {
-    public struct Personealbanco
+    class CPersonealbanco
     {
         public List<Ccarta> Mano;
-        public int valoreMano ;
-        public int spostamento;
-        public bool sballa;
-        public bool blackjack;
-        public Personealbanco(int hand = 0, int move = 0)
+        public int ValoreMano;
+        public int Spostamento;
+        public bool Sballa;
+        public bool Blackjack;
+
+        public CPersonealbanco()
         {
             Mano = new List<Ccarta>();
-            valoreMano = hand;
-            spostamento = move;
-            sballa = false;
-            blackjack = false;
+            ValoreMano = 0;
+            Spostamento = 0;
+            Sballa = false;
+            Blackjack = false;
         }
-
     }
 }
 

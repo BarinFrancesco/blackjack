@@ -100,13 +100,13 @@ namespace Barin_Vallarsa_Blackjack
             {
                 if (cartaPuntata >= 155)
                 {
-                    shuffledeck();
+                    shuffledeck(); //rimescola il masso se abbiamo finito le carte
                 }
 
                 showPlayingButtons();//all'inizio del turno si mostrano i pulsanti di gioco e si danno le prime 4 carte 2 al giocatore e 2 al banco
                 addCard(true, false);
-                addCard(true, false);
                 addCard(false, false);
+                addCard(true, false);
                 addCard(false, true);
 
                 if ((Giocatore.Mano[0].value == 11 && Giocatore.Mano[1].value == 10) || (Giocatore.Mano[0].value == 10 && Giocatore.Mano[1].value == 11))
@@ -172,7 +172,6 @@ namespace Barin_Vallarsa_Blackjack
 
         private void btn_call_Click(object sender, EventArgs e) // se l'utente chiama carta viene aggiunta una carta alla sua mano con la funzione addcard
         {
-            Task.Delay(500).GetAwaiter().GetResult();
             addCard(true, false);
         }
 
@@ -191,7 +190,7 @@ namespace Barin_Vallarsa_Blackjack
             if (credito - puntata - aggiunta >= 0)
             {
                 puntata += aggiunta;
-                lbl_bet.Text = $"Puntata: {puntata.ToString()}$";
+                lbl_bet.Text = $"Puntata: {puntata}$";
                 listapuntate.Add(aggiunta);//aggiungo la puntata alla lista
                 indexpuntate++;//incremento l'indice lalle lista
             }
@@ -398,19 +397,19 @@ namespace Barin_Vallarsa_Blackjack
             if (Giocatore.Blackjack)
             {
                 credito += (puntata + puntata / 2);
-                lblCredito.Text = credito.ToString();
+                lblCredito.Text = " Credito:"+  credito.ToString() +"$";
                 croupierSpeaking("Complimenti, hai vinto");
             }
             else if ((Giocatore.ValoreMano > Banco.ValoreMano || Banco.Sballa) && !Giocatore.Sballa)
             {
                 credito += puntata;
-                lblCredito.Text = credito.ToString();
+                lblCredito.Text = " Credito:" + credito.ToString() + "$";
                 croupierSpeaking("Complimenti, hai vinto");
             }
             else if ((Giocatore.ValoreMano < Banco.ValoreMano || Giocatore.Sballa || Banco.Blackjack) && !Banco.Sballa)
             {
                 credito -= puntata;
-                lblCredito.Text = credito.ToString();
+                lblCredito.Text = " Credito:" + credito.ToString() + "$";
                 croupierSpeaking("Peccato, hai perso");
             }
             else
@@ -585,7 +584,7 @@ namespace Barin_Vallarsa_Blackjack
                 form.Location = new Point(700, 100);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-
+                    //non ritorno niente perché dovo solo dare un messaggio
                 }
             }
         }

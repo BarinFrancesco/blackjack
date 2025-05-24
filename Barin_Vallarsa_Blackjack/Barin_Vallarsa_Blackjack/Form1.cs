@@ -19,6 +19,7 @@ namespace Barin_Vallarsa_Blackjack
             InitializeComponent();
             shuffledeck(); // quando inizio il programma moescolo il mazzo e chiedo subito i soldi
             changeMoney();
+            
 
             // partegrafica che serve a rendere i bottoni rotondi
             GraphicsPath palla = new GraphicsPath();
@@ -31,6 +32,8 @@ namespace Barin_Vallarsa_Blackjack
             btn_doubleDown.Region = new Region(palla);
             btn_stop.Region = new Region(palla);
             btn_split.Region = new Region(palla);
+            btn_accettaAssicurazione.Region = new Region(palla);
+            btn_rifiutaAssicurazione.Region = new Region(palla);
         }
 
         //random per generare le carte in posti casuali
@@ -52,6 +55,11 @@ namespace Barin_Vallarsa_Blackjack
 
         CPersonealbanco Giocatore = new CPersonealbanco();
         CPersonealbanco Banco = new CPersonealbanco();
+
+        //variabile globale per metodo assicurazione
+        bool assicurazione = false;
+
+        int soldiAssicurazione = 0; 
 
         private void pnlFiches10_MouseClick(object sender, MouseEventArgs e) //funzioni per puntare soldi, richiamano tutte la stessa funzione e gli passano come parametro il valore da aggiungere
         {
@@ -103,7 +111,7 @@ namespace Barin_Vallarsa_Blackjack
                     shuffledeck(); //rimescola il masso se abbiamo finito le carte
                 }
 
-                showPlayingButtons();//all'inizio del turno si mostrano i pulsanti di gioco e si danno le prime 4 carte 2 al giocatore e 2 al banco
+                //all'inizio del turno si mostrano i pulsanti di gioco e si danno le prime 4 carte 2 al giocatore e 2 al banco
                 addCard(true, false);
                 addCard(false, false);
                 addCard(true, false);
@@ -114,6 +122,17 @@ namespace Barin_Vallarsa_Blackjack
                     lbl_playersHandValue.Text = "BLACKJACK";
                     Giocatore.Blackjack = true;
                     checkifwin();
+
+                    return;
+                }
+
+                if (Banco.Mano[0].value == 11 || Banco.Mano[0].value == 1)
+                {
+                    ShowInsuranceButtons();
+                }
+                else
+                {
+                    showPlayingButtons();
                 }
             }
             else if (credito > 0) // se l'utente non ha soldi o non ne ha caricati ne lancia il rispettivo messaggio
@@ -134,6 +153,8 @@ namespace Barin_Vallarsa_Blackjack
             {
                 puntata = ultimaPuntata;
                 lbl_bet.Text = $"Puntata: {puntata.ToString()}$";
+                listapuntate.Add(puntata);
+                indexpuntate++;
             } else
             {
                 croupierSpeaking("Non ha abbastanza soldi per piazzare questa puntata");
@@ -394,6 +415,10 @@ namespace Barin_Vallarsa_Blackjack
 
         private void checkifwin() //tramite le condizioni di vittoria si vede chi ha vinto e si dano i rispettivi soldi in base alla puntata ed al tipo di vincita
         {
+            if(Banco.Blackjack && assicurazione)
+            {
+                credito += soldiAssicurazione;
+            }
             if (Giocatore.Blackjack)
             {
                 credito += (puntata + puntata / 2);
@@ -589,7 +614,58 @@ namespace Barin_Vallarsa_Blackjack
             }
         }
 
+        private void ShowInsuranceButtons()
+        {
+            btn_accettaAssicurazione.Location = new Point(btn_accettaAssicurazione.Location.X, 350);
+            btn_rifiutaAssicurazione.Location = new Point(btn_rifiutaAssicurazione.Location.X, 350);
+            lbl_accettaAssicurazione.Location = new Point(lbl_accettaAssicurazione.Location.X, 430);
+            lbl_rifiutaAssicurazione.Location = new Point(lbl_rifiutaAssicurazione.Location.X, 430);
 
+            // nascondi tutti gli altri bottoni per le puntate
+            btn_dealCards.Location = new Point(btn_dealCards.Location.X, 1000);
+            lbl_dealCards.Location = new Point(lbl_dealCards.Location.X, 1000);
+            btn_cancelBet.Location = new Point(btn_cancelBet.Location.X, 1000);
+            lbl_cancelBet.Location = new Point(lbl_cancelBet.Location.X, 1000);
+            btn_addNewMoney.Location = new Point(btn_addNewMoney.Location.X, 1000);
+            lbl_addNewMoney.Location = new Point(lbl_addNewMoney.Location.X, 1000);
+            btn_lastBet.Location = new Point(btn_lastBet.Location.X, 1000);
+            lbl_lastBet.Location = new Point(lbl_lastBet.Location.X, 1000);
+            pnlFiches10.Location = new Point(pnlFiches10.Location.X, 1000);
+            pnlFiches20.Location = new Point(pnlFiches20.Location.X, 1000);
+            pnlFiches100.Location = new Point(pnlFiches100.Location.X, 1000);
+            pnlFiches500.Location = new Point(pnlFiches500.Location.X, 1000);
+            pnlFiches1000.Location = new Point(pnlFiches1000.Location.X, 1000);
+        }
+
+        private void HideInsuranceButtons()
+        {
+            btn_accettaAssicurazione.Location = new Point(btn_accettaAssicurazione.Location.X, 1000);
+            btn_rifiutaAssicurazione.Location = new Point(btn_rifiutaAssicurazione.Location.X, 1000);
+            lbl_accettaAssicurazione.Location = new Point(lbl_accettaAssicurazione.Location.X, 1000);
+            lbl_rifiutaAssicurazione.Location = new Point(lbl_rifiutaAssicurazione.Location.X, 1000);
+        }
+
+        private void btn_accettaAssicurazione_Click(object sender, EventArgs e)
+        {
+            if(credito - (2 * puntata) > 0)
+            {
+                assicurazione = true;
+                soldiAssicurazione = puntata;
+                HideInsuranceButtons();
+                showPlayingButtons();
+
+            }
+            else
+            {
+                croupierSpeaking("Non hai abbstanza soldi per eseguire l'assicurazione!!!");
+            }
+        }
+
+        private void btn_rifiutaAssicurazione_Click(object sender, EventArgs e)
+        {
+            HideInsuranceButtons();
+            showPlayingButtons();
+        }
     }
 }
 // puoi aggiungere l'assicurazione se il dealer mostra un asso e lo split

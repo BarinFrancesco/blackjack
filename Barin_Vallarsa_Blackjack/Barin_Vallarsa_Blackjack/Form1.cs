@@ -117,6 +117,15 @@ namespace Barin_Vallarsa_Blackjack
                 addCard(true, false);
                 addCard(false, true);
 
+                if (Banco.Mano[0].value == 11 || Banco.Mano[0].value == 1)
+                {
+                    ShowInsuranceButtons();
+                }
+                else
+                {
+                    showPlayingButtons();
+                }
+
                 if ((Giocatore.Mano[0].value == 11 && Giocatore.Mano[1].value == 10) || (Giocatore.Mano[0].value == 10 && Giocatore.Mano[1].value == 11))
                 {
                     lbl_playersHandValue.Text = "BLACKJACK";
@@ -126,14 +135,6 @@ namespace Barin_Vallarsa_Blackjack
                     return;
                 }
 
-                if (Banco.Mano[0].value == 11 || Banco.Mano[0].value == 1)
-                {
-                    ShowInsuranceButtons();
-                }
-                else
-                {
-                    showPlayingButtons();
-                }
             }
             else if (credito > 0) // se l'utente non ha soldi o non ne ha caricati ne lancia il rispettivo messaggio
             {
@@ -151,6 +152,8 @@ namespace Barin_Vallarsa_Blackjack
         {
             if(credito - ultimaPuntata >= 0)
             {
+                listapuntate.Clear();
+                indexpuntate = -1;
                 puntata = ultimaPuntata;
                 lbl_bet.Text = $"Puntata: {puntata.ToString()}$";
                 listapuntate.Add(puntata);
@@ -462,6 +465,7 @@ namespace Barin_Vallarsa_Blackjack
             }
             carteSulTavolo = new List<Control>();
             showBettingButtons();
+            HideInsuranceButtons();
         }
 
 

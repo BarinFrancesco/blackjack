@@ -415,10 +415,6 @@ namespace Barin_Vallarsa_Blackjack
 
         private void checkifwin() //tramite le condizioni di vittoria si vede chi ha vinto e si dano i rispettivi soldi in base alla puntata ed al tipo di vincita
         {
-            if(Banco.Blackjack && assicurazione)
-            {
-                credito += soldiAssicurazione;
-            }
             if (Giocatore.Blackjack)
             {
                 credito += (puntata + puntata / 2);
@@ -434,6 +430,10 @@ namespace Barin_Vallarsa_Blackjack
             else if ((Giocatore.ValoreMano < Banco.ValoreMano || Giocatore.Sballa || Banco.Blackjack) && !Banco.Sballa)
             {
                 credito -= puntata;
+                if(assicurazione)
+                {
+                credito += soldiAssicurazione;
+                }
                 lblCredito.Text = " Credito:" + credito.ToString() + "$";
                 croupierSpeaking("Peccato, hai perso");
             }
@@ -449,6 +449,9 @@ namespace Barin_Vallarsa_Blackjack
             lbl_playersHandValue.Text = "";
             listapuntate.Clear();
             indexpuntate = -1;
+            soldiAssicurazione = 0;
+            assicurazione = false;
+            
 
             Banco = new CPersonealbanco();
             Giocatore = new CPersonealbanco();

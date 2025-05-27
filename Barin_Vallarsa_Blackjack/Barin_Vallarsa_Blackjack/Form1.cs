@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Barin_Vallarsa_Blackjack
 {
@@ -35,6 +36,8 @@ namespace Barin_Vallarsa_Blackjack
             btn_accettaAssicurazione.Region = new Region(palla);
             btn_rifiutaAssicurazione.Region = new Region(palla);
         }
+
+        SoundPlayer suono;
 
         //random per generare le carte in posti casuali
         Random random = new Random(Environment.TickCount);
@@ -428,7 +431,12 @@ namespace Barin_Vallarsa_Blackjack
             {
                 credito += puntata;
                 lblCredito.Text = " Credito:" + credito.ToString() + "$";
+                //suono vittoria
+                suono = new SoundPlayer("boombaby.wav");
+                suono.Play();
+                //messaggio vittoria
                 croupierSpeaking("Complimenti, hai vinto");
+
             }
             else if ((Giocatore.ValoreMano < Banco.ValoreMano || Giocatore.Sballa || Banco.Blackjack) && !Banco.Sballa)
             {
@@ -598,6 +606,10 @@ namespace Barin_Vallarsa_Blackjack
                     {
                         credito += form.money;
                         lblCredito.Text = $"credito: {credito.ToString()}$";
+                        
+                        // suono da ricchi quando cadono le fishes
+                        suono = new SoundPlayer("FishesSound.wav");
+                        suono.Play();
                     } else
                     {
                         croupierSpeaking("Ci dispiace, ma non siamo capaci di gestire una quantità di denaro così grande");
@@ -617,6 +629,10 @@ namespace Barin_Vallarsa_Blackjack
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     //non ritorno niente perché dovo solo dare un messaggio
+                    if(suono != null)
+                    {
+                        suono.Stop();
+                    }
                 }
             }
         }

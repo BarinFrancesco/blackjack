@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,10 +15,15 @@ namespace Barin_Vallarsa_Blackjack
 {
     public partial class formCambioSoldi : Form
     {
+        SoundPlayer suono;
+
         public formCambioSoldi()
         {
             InitializeComponent();
             lbl_dealerVoice.Text = "Buonasera, vuole cambiare dei soldi in fiches?";
+
+            suono = new SoundPlayer("dammiSoldi.wav");
+            suono.Play();
         }
         public int money { get; set; }
         private void btn_ok_Click(object sender, EventArgs e)

@@ -32,12 +32,11 @@ namespace Barin_Vallarsa_Blackjack
             btn_call.Region = new Region(palla);
             btn_doubleDown.Region = new Region(palla);
             btn_stop.Region = new Region(palla);
-            btn_split.Region = new Region(palla);
             btn_accettaAssicurazione.Region = new Region(palla);
             btn_rifiutaAssicurazione.Region = new Region(palla);
         }
 
-        SoundPlayer suono;
+        public SoundPlayer suono;
 
         //random per generare le carte in posti casuali
         Random random = new Random(Environment.TickCount);
@@ -99,7 +98,7 @@ namespace Barin_Vallarsa_Blackjack
             }
             else
             {
-                croupierSpeaking("Non ci sono altri soldi da ritirare");
+                croupierSpeaking("Non ci sono altri soldi da ritirare", 4);
             }
         }
 
@@ -141,11 +140,11 @@ namespace Barin_Vallarsa_Blackjack
             }
             else if (credito > 0) // se l'utente non ha soldi o non ne ha caricati ne lancia il rispettivo messaggio
             {
-                croupierSpeaking("Devi puntare dei soldi per giocare amico");
+                croupierSpeaking("Devi puntare dei soldi per giocare amico", 1);
             }
             else
             {
-                croupierSpeaking("Hai finito i soldi, caricane altri");
+                croupierSpeaking("Hai finito i soldi, caricane altri", 5);
             }
 
         }
@@ -163,7 +162,7 @@ namespace Barin_Vallarsa_Blackjack
                 indexpuntate++;
             } else
             {
-                croupierSpeaking("Non ha abbastanza soldi per piazzare questa puntata");
+                croupierSpeaking("Non ha abbastanza soldi per piazzare questa puntata", 6);
             }
 
         }
@@ -187,12 +186,12 @@ namespace Barin_Vallarsa_Blackjack
                 }
                 else
                 {
-                    croupierSpeaking("Non ha abbastanza soldi per raddoppiare");
+                    croupierSpeaking("Non ha abbastanza soldi per raddoppiare", 7);
                 }
             }
             else
             {
-                croupierSpeaking("Può raddoppiare solo qunando ha le prime 2 carte");
+                croupierSpeaking("Può raddoppiare solo qunando ha le prime 2 carte", 1);
             }
 
         }
@@ -207,11 +206,6 @@ namespace Barin_Vallarsa_Blackjack
             dealersturn();
         }
 
-        private void btn_split_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void increaseBet(int aggiunta)//funzione che fa aumentare la puntata, se il giocatore ha abbastanza soldi
         {
             if (credito - puntata - aggiunta >= 0)
@@ -223,7 +217,7 @@ namespace Barin_Vallarsa_Blackjack
             }
             else
             {
-                croupierSpeaking("Non hai tutti questi soldi da puntare");
+                croupierSpeaking("Non hai tutti questi soldi da puntare", 1);
             }
         }
 
@@ -425,17 +419,14 @@ namespace Barin_Vallarsa_Blackjack
             {
                 credito += (puntata + puntata / 2);
                 lblCredito.Text = " Credito:"+  credito.ToString() +"$";
-                croupierSpeaking("Complimenti, hai vinto");
+                croupierSpeaking("Complimenti, hai vinto", 2);
             }
             else if ((Giocatore.ValoreMano > Banco.ValoreMano || Banco.Sballa) && !Giocatore.Sballa)
             {
                 credito += puntata;
                 lblCredito.Text = " Credito:" + credito.ToString() + "$";
-                //suono vittoria
-                suono = new SoundPlayer("boombaby.wav");
-                suono.Play();
                 //messaggio vittoria
-                croupierSpeaking("Complimenti, hai vinto");
+                croupierSpeaking("Complimenti, hai vinto", 2);
 
             }
             else if ((Giocatore.ValoreMano < Banco.ValoreMano || Giocatore.Sballa || Banco.Blackjack) && !Banco.Sballa)
@@ -446,11 +437,12 @@ namespace Barin_Vallarsa_Blackjack
                 credito += soldiAssicurazione;
                 }
                 lblCredito.Text = " Credito:" + credito.ToString() + "$";
-                croupierSpeaking("Peccato, hai perso");
+                //messaggio sconfitta
+                croupierSpeaking("Peccato, hai perso", 3);
             }
             else
             {
-                croupierSpeaking("Avete pareggiato");
+                croupierSpeaking("Avete pareggiato", 1);
             }
 
             ultimaPuntata = puntata;// alla fine si resettano tutti i valori
@@ -564,8 +556,6 @@ namespace Barin_Vallarsa_Blackjack
             lbl_doubleDown.Location = new Point(lbl_doubleDown.Location.X, 475);
             btn_stop.Location = new Point(btn_stop.Location.X, 400);
             lbl_stop.Location = new Point(lbl_stop.Location.X, 475);
-            btn_split.Location = new Point(btn_split.Location.X, 400);
-            lbl_split.Location = new Point(lbl_split.Location.X, 475);
         }
 
 
@@ -591,8 +581,6 @@ namespace Barin_Vallarsa_Blackjack
             lbl_doubleDown.Location = new Point(lbl_doubleDown.Location.X, 1000);
             btn_stop.Location = new Point(btn_stop.Location.X, 1000);
             lbl_stop.Location = new Point(lbl_stop.Location.X, 1000);
-            btn_split.Location = new Point(btn_split.Location.X, 1000);
-            lbl_split.Location = new Point(lbl_split.Location.X, 1000);
         }
 
 
@@ -612,7 +600,7 @@ namespace Barin_Vallarsa_Blackjack
                         suono.Play();
                     } else
                     {
-                        croupierSpeaking("Ci dispiace, ma non siamo capaci di gestire una quantità di denaro così grande");
+                        croupierSpeaking("Ci dispiace, ma non siamo capaci di gestire una quantità di denaro così grande", 1);
                     }
 
                 }
@@ -620,9 +608,9 @@ namespace Barin_Vallarsa_Blackjack
         }
 
 
-        private void croupierSpeaking(string message) // funzione per comunicare con l'utente alternativa al messagebox
+        private void croupierSpeaking(string message, int scelta) // funzione per comunicare con l'utente alternativa al messagebox
         {
-            using (dealerSpeaking form = new dealerSpeaking(message))
+            using (dealerSpeaking form = new dealerSpeaking(message, scelta))
             {
                 form.StartPosition = FormStartPosition.Manual;
                 form.Location = new Point(700, 100);
@@ -680,7 +668,7 @@ namespace Barin_Vallarsa_Blackjack
             }
             else
             {
-                croupierSpeaking("Non hai abbstanza soldi per eseguire l'assicurazione!!!");
+                croupierSpeaking("Non hai abbstanza soldi per eseguire l'assicurazione!!!", 1);
             }
         }
 
@@ -690,18 +678,4 @@ namespace Barin_Vallarsa_Blackjack
             showPlayingButtons();
         }
     }
-}
-// puoi aggiungere l'assicurazione se il dealer mostra un asso e lo split
-
-// per l'assicurazione aggiungi 2 bottoni nascosti uno verde e uno rosso metti una variabile booleana globale che ti tiene memoria dell'assicurazione                        
-
-// controlla sulla funzione btn_distribuisci_Click se il banco ha asso come prima carta (manoBanco[0].value == 11 || manoBanco[0].value == 1 ) perché magari il banco ha 2 assi e quindi il primo vale 1
-
-// se il banco ha asso allora mostra i 2 bottoni e in base a quale preme metti la variabile booleana true o false, poi nascondi di nuovo i bottoni
-
-// se metti true inserisci anche che l'utende deve pagare la puntata una'ltra volta , prima però controlla che abbia abbastanza soldi per farlo, sennò lancia messaggio di errore
-
-// aggiungi una condizione alla fine dellla funzione chek if win dove vedi se questa variabile è attivata, se il banco ha blackjack e tu hai la variabile attivata allora ti ritornano indietro i soldi, se il banco ha blackjack e tu hai rifiutato perdi
-
-// se il banco non ha blakcjack e tu non hai accettato non fare niente e continua col resto, se invece il banco non ha blakcjack e tu hai accettato i soldi non ti ritornano indietro
-// infine resetta tutto alla fine delle condizioni di vittoria   
+}  

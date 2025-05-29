@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,15 +13,42 @@ namespace Barin_Vallarsa_Blackjack
 {
     public partial class dealerSpeaking: Form
     {
-        public dealerSpeaking(string parole)
+        SoundPlayer suono;
+        public dealerSpeaking(string parole, int scelta)
         {
             InitializeComponent();
-            Vocedealer(parole,25);
-        }
 
-        private void lbl_dealerVoice_Click(object sender, EventArgs e)
-        {
-
+            string voce ="";
+            switch (scelta)
+            {
+                case 1:
+                    voce = "PuntaperGiocare.wav";
+                    break;
+                case 2:
+                    voce = "boombaby.wav";
+                    break;
+                case 3:
+                    voce = "SconfittaSound.wav";
+                    break;
+                case 4:
+                    voce = "NoSoldiRitirare.wav";
+                    break;
+                case 5:
+                    voce = "FinitoSoldi.wav";
+                    break;
+                case 6:
+                    voce = ".wav";
+                    break;
+                case 7:
+                    voce = ".wav";
+                    break;
+                case 8:
+                    voce = ".wav";
+                    break;
+            }
+           suono = new SoundPlayer(voce);
+           suono.Play();
+           Vocedealer(parole, 25);
         }
 
         public async void Vocedealer(string text, int delay)
@@ -35,6 +63,7 @@ namespace Barin_Vallarsa_Blackjack
 
         private void button1_Click(object sender, EventArgs e)
         {
+            suono.Stop();
             DialogResult = DialogResult.OK;
         }
     }

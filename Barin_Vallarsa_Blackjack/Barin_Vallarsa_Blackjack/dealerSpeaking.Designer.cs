@@ -43,7 +43,6 @@
             this.lbl_dealerVoice.TabIndex = 1;
             this.lbl_dealerVoice.Text = " ";
             this.lbl_dealerVoice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_dealerVoice.Click += new System.EventHandler(this.lbl_dealerVoice_Click);
             // 
             // button1
             // 

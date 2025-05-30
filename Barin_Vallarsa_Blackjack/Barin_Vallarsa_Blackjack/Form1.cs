@@ -108,10 +108,6 @@ namespace Barin_Vallarsa_Blackjack
 
             if (puntata != 0)
             {
-                if (cartaPuntata >= 155)
-                {
-                    shuffledeck(); //rimescola il masso se abbiamo finito le carte
-                }
 
                 //all'inizio del turno si mostrano i pulsanti di gioco e si danno le prime 4 carte 2 al giocatore e 2 al banco
                 addCard(true, false);
@@ -191,7 +187,7 @@ namespace Barin_Vallarsa_Blackjack
             }
             else
             {
-                croupierSpeaking("Può raddoppiare solo qunando ha le prime 2 carte", 1);
+                croupierSpeaking("Può raddoppiare solo quando ha le prime 2 carte", 8);
             }
 
         }
@@ -217,12 +213,19 @@ namespace Barin_Vallarsa_Blackjack
             }
             else
             {
-                croupierSpeaking("Non hai tutti questi soldi da puntare", 1);
+                croupierSpeaking("Non hai tutti questi soldi da puntare", 9);
             }
         }
 
         private void addCard(bool scelta, bool hiddencard)//funzione che aggiunge la carta alla persona che la richiede true = giocatore / false = dealer
         {                                                 // per creare fisicamente la carta viene usata la funzione showCard  
+
+            if (cartaPuntata >= 155)
+            {
+                shuffledeck(); //rimescola il mazzo se abbiamo finito le carte
+                croupierSpeaking("Il mazzo sta venendo rimescolato", 13);
+            }
+
             if (scelta)
             {
                 Giocatore.Mano.Add(mazzi[cartaPuntata]);
@@ -442,7 +445,7 @@ namespace Barin_Vallarsa_Blackjack
             }
             else
             {
-                croupierSpeaking("Avete pareggiato", 1);
+                croupierSpeaking("Avete pareggiato", 10);
             }
 
             ultimaPuntata = puntata;// alla fine si resettano tutti i valori
@@ -600,7 +603,7 @@ namespace Barin_Vallarsa_Blackjack
                         suono.Play();
                     } else
                     {
-                        croupierSpeaking("Ci dispiace, ma non siamo capaci di gestire una quantità di denaro così grande", 1);
+                        croupierSpeaking("Ci dispiace, ma non siamo capaci di gestire una quantità di denaro così grande", 11);
                     }
 
                 }
@@ -668,7 +671,7 @@ namespace Barin_Vallarsa_Blackjack
             }
             else
             {
-                croupierSpeaking("Non hai abbstanza soldi per eseguire l'assicurazione!!!", 1);
+                croupierSpeaking("Non hai abbastanza soldi per giocare l'assicurazione!!!", 12);
             }
         }
 

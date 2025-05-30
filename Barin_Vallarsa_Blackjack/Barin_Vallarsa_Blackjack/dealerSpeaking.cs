@@ -37,13 +37,25 @@ namespace Barin_Vallarsa_Blackjack
                     voce = "FinitoSoldi.wav";
                     break;
                 case 6:
-                    voce = ".wav";
+                    voce = "NonabbastanzaSoldi.wav";
                     break;
                 case 7:
-                    voce = ".wav";
+                    voce = "NonSoldiXraddoppiare.wav";
                     break;
                 case 8:
-                    voce = ".wav";
+                    voce = "Dopo2carte.wav";
+                    break;
+                case 9:
+                    voce = "NosoldiDaPuntare.wav";
+                    break;
+                case 10:
+                    voce = "pareggiato.wav";
+                    break;
+                case 11:
+                    voce = "CiDispiace.wav";
+                    break;
+                default:
+                    voce = "CiDispiace.wav"; //DA CAMBIARE !!!!
                     break;
             }
            suono = new SoundPlayer(voce);

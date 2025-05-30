@@ -1,26 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Utente\\Desktop\\Nuova cartella\\blackjack\\Barin_Vallarsa_Blackjack\\",
+  "WorkspaceRootPath": "C:\\Users\\Giuliano\\Desktop\\MIKI SCUOLA\\blackjack\\Barin_Vallarsa_Blackjack\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|c:\\users\\utente\\desktop\\nuova cartella\\blackjack\\barin_vallarsa_blackjack\\barin_vallarsa_blackjack\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|c:\\users\\giuliano\\desktop\\miki scuola\\blackjack\\barin_vallarsa_blackjack\\barin_vallarsa_blackjack\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|solutionrelative:barin_vallarsa_blackjack\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|C:\\Users\\Utente\\Desktop\\Nuova cartella\\blackjack\\Barin_Vallarsa_Blackjack\\barin_vallarsa_blackjack\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|solutionrelative:barin_vallarsa_blackjack\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|C:\\Users\\Giuliano\\Desktop\\MIKI SCUOLA\\blackjack\\Barin_Vallarsa_Blackjack\\barin_vallarsa_blackjack\\formcambiosoldi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|solutionrelative:barin_vallarsa_blackjack\\formcambiosoldi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|C:\\Users\\Utente\\Desktop\\Nuova cartella\\blackjack\\Barin_Vallarsa_Blackjack\\barin_vallarsa_blackjack\\cpersonealbanco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|C:\\Users\\Giuliano\\Desktop\\MIKI SCUOLA\\blackjack\\Barin_Vallarsa_Blackjack\\barin_vallarsa_blackjack\\cpersonealbanco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|solutionrelative:barin_vallarsa_blackjack\\cpersonealbanco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|C:\\Users\\Utente\\Desktop\\Nuova cartella\\blackjack\\Barin_Vallarsa_Blackjack\\barin_vallarsa_blackjack\\dealerspeaking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|C:\\Users\\Giuliano\\Desktop\\MIKI SCUOLA\\blackjack\\Barin_Vallarsa_Blackjack\\barin_vallarsa_blackjack\\dealerspeaking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|solutionrelative:barin_vallarsa_blackjack\\dealerspeaking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|C:\\Users\\Utente\\Desktop\\Nuova cartella\\blackjack\\Barin_Vallarsa_Blackjack\\barin_vallarsa_blackjack\\formcambiosoldi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|solutionrelative:barin_vallarsa_blackjack\\formcambiosoldi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|C:\\Users\\Giuliano\\Desktop\\MIKI SCUOLA\\blackjack\\Barin_Vallarsa_Blackjack\\barin_vallarsa_blackjack\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6F38E2B3-9C66-415E-8F2E-4D7CC674A7B7}|Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack.csproj|solutionrelative:barin_vallarsa_blackjack\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,21 +30,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\Nuova cartella\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Giuliano\\Desktop\\MIKI SCUOLA\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\Form1.cs",
               "RelativeDocumentMoniker": "Barin_Vallarsa_Blackjack\\Form1.cs",
-              "ToolTip": "C:\\Users\\Utente\\Desktop\\Nuova cartella\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\Form1.cs",
+              "ToolTip": "C:\\Users\\Giuliano\\Desktop\\MIKI SCUOLA\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\Form1.cs",
               "RelativeToolTip": "Barin_Vallarsa_Blackjack\\Form1.cs",
-              "ViewState": "AgIAAKcBAAAAAAAAAAAnwJsAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHACAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-16T14:49:14.282Z",
               "IsPinned": true,
@@ -52,51 +48,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Form1.cs [Progettazione]",
-              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\Nuova cartella\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Giuliano\\Desktop\\MIKI SCUOLA\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\Form1.cs",
               "RelativeDocumentMoniker": "Barin_Vallarsa_Blackjack\\Form1.cs",
-              "ToolTip": "C:\\Users\\Utente\\Desktop\\cancella\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\Form1.cs [Progettazione]",
-              "RelativeToolTip": "..\\..\\..\\cancella\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\Form1.cs [Progettazione]",
+              "ToolTip": "C:\\Users\\Giuliano\\Desktop\\MIKI SCUOLA\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\Form1.cs [Progettazione]",
+              "RelativeToolTip": "Barin_Vallarsa_Blackjack\\Form1.cs [Progettazione]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-16T14:20:22.783Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": " [Progettazione]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Cpersonealbanco.cs",
-              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\Nuova cartella\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\Cpersonealbanco.cs",
+              "DocumentMoniker": "C:\\Users\\Giuliano\\Desktop\\MIKI SCUOLA\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\Cpersonealbanco.cs",
               "RelativeDocumentMoniker": "Barin_Vallarsa_Blackjack\\Cpersonealbanco.cs",
-              "ToolTip": "C:\\Users\\Utente\\Desktop\\Nuova cartella\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\Cpersonealbanco.cs",
+              "ToolTip": "C:\\Users\\Giuliano\\Desktop\\MIKI SCUOLA\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\Cpersonealbanco.cs",
               "RelativeToolTip": "Barin_Vallarsa_Blackjack\\Cpersonealbanco.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T14:53:46.015Z"
+              "WhenOpened": "2025-05-22T14:53:46.015Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "dealerSpeaking.cs",
-              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\Nuova cartella\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\dealerSpeaking.cs",
+              "DocumentMoniker": "C:\\Users\\Giuliano\\Desktop\\MIKI SCUOLA\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\dealerSpeaking.cs",
               "RelativeDocumentMoniker": "Barin_Vallarsa_Blackjack\\dealerSpeaking.cs",
-              "ToolTip": "C:\\Users\\Utente\\Desktop\\Nuova cartella\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\dealerSpeaking.cs",
+              "ToolTip": "C:\\Users\\Giuliano\\Desktop\\MIKI SCUOLA\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\dealerSpeaking.cs",
               "RelativeToolTip": "Barin_Vallarsa_Blackjack\\dealerSpeaking.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAAwB8AAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAQwBMAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-18T19:34:52.922Z"
+              "WhenOpened": "2025-05-18T19:34:52.922Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "formCambioSoldi.cs",
-              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\Nuova cartella\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\formCambioSoldi.cs",
+              "DocumentMoniker": "C:\\Users\\Giuliano\\Desktop\\MIKI SCUOLA\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\formCambioSoldi.cs",
               "RelativeDocumentMoniker": "Barin_Vallarsa_Blackjack\\formCambioSoldi.cs",
-              "ToolTip": "C:\\Users\\Utente\\Desktop\\Nuova cartella\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\formCambioSoldi.cs",
+              "ToolTip": "C:\\Users\\Giuliano\\Desktop\\MIKI SCUOLA\\blackjack\\Barin_Vallarsa_Blackjack\\Barin_Vallarsa_Blackjack\\formCambioSoldi.cs",
               "RelativeToolTip": "Barin_Vallarsa_Blackjack\\formCambioSoldi.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAiwEkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAgwEkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T14:48:40.327Z"
+              "WhenOpened": "2025-05-17T14:48:40.327Z",
+              "EditorCaption": ""
             }
           ]
         }

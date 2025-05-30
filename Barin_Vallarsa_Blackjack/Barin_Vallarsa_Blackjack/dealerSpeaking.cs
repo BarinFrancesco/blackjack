@@ -17,7 +17,7 @@ namespace Barin_Vallarsa_Blackjack
         public dealerSpeaking(string parole, int scelta)
         {
             InitializeComponent();
-
+            // crupier che parla
             string voce ="";
             switch (scelta)
             {
@@ -55,7 +55,7 @@ namespace Barin_Vallarsa_Blackjack
                     voce = "CiDispiace.wav";
                     break;
                 default:
-                    voce = "CiDispiace.wav"; //DA CAMBIARE !!!!
+                    voce = "default.wav"; 
                     break;
             }
            suono = new SoundPlayer(voce);
